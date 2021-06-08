@@ -1,0 +1,22 @@
+=form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .card.card-hidden
+    .header.text-center =user_action_title
+    .content
+      .alert.alert-warning Lembre-se de confirmar seu e-mail caso não consiga fazer login. Caso não esteja recebendo o e-mail digite no campo de busca do seu e-mail: no-reply@kpihunters.com
+      .form-group
+        =f.label :email
+        =f.email_field :email, class: 'form-control', required: true, autofocus: true
+
+      .form-group
+        =f.label :password
+        =f.password_field :password, class: 'form-control', required: true
+
+      -if devise_mapping.rememberable?
+        .form-group
+          label
+            =f.check_box :remember_me
+            =t('activerecord.attributes.user.remember_me')
+    .footer.text-center
+      =f.submit t('actions.devise.new.button.session'), class: 'btn btn-fill btn-info btn-wd'
+
+=render 'devise/shared/flash'

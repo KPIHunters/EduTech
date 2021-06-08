@@ -1,0 +1,84 @@
+doctype html
+html
+  head
+    =render 'layouts/partials/structure/app_head'
+    =javascript_include_tag 'application', 'data-turbolinks-track' => true
+  body
+    .wrapper
+      /data-color="azure"
+      .sidebar data-color="red" data-image="#{image_path('sign_bg.jpg')}"
+        .logo
+          a href="#" class="logo-text" =product_name_short
+        .logo.logo-mini
+          a href="#" class="logo-text" EDU
+
+
+        .sidebar-wrapper.overflow
+          =render 'layouts/partials/components/sidebar/user_profile_actions'
+
+          -if admin?
+            =render 'layouts/partials/components/sidebar/resources_actions/admin'
+          -else
+            =render 'layouts/partials/components/sidebar/resources_actions/user'
+
+          / -if admin?
+          /   =render 'layouts/partials/components/sidebar/resources_actions/admin'
+          / -elsif staff_role?
+          /   =render 'layouts/partials/components/sidebar/resources_actions/admin'
+          / -elsif teacher_role?
+          /   =render 'layouts/partials/components/sidebar/resources_actions/teacher'
+          / -else
+          /   =render 'layouts/partials/components/sidebar/resources_actions/user'
+
+
+      .main-panel
+        nav.navbar.navbar-default
+          .container-fluid
+            .navbar-minimize
+              button#minimizeSidebar.btn.btn-fill.btn-round.btn-icon.btn-danger
+                i.fa.fa-ellipsis-v.visible-on-sidebar-regular
+                i.fa.fa-navicon.visible-on-sidebar-mini
+            .navbar-header
+              button.navbar-toggle type="button" data-toggle="collapse"
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand href="#" =screen_name
+
+
+        / .collapse.navbar-collapse.nav.navbar-nav.navbar-right.flags
+        /   =flag_list 24, class: 'nav navbar-nav navbar-right' do
+        /     =flags :br, :us, :fr, selected: current_locale
+
+
+        .content
+          .container-fluid
+            =render 'layouts/partials/flash_alert'
+
+            -if card_page?
+              .row
+                .col-md-12
+                  .card
+                    .header
+                      .row
+                        .col-xs-12.col-sm-12
+                          -if @card_title
+                            h1 =@card_title
+                            p =@card_subtitle
+                      hr
+                    .content.no-min-height
+                      =yield
+            -else
+              =yield
+
+-n_profile_path = nil
+-if @current_user.profile.nil?
+  -n_profile_path = new_profile_path
+-else
+  -n_profile_path = edit_profile_path(@current_user.profile)
+javascript:
+    function missingProfileData() {
+      alert('Seus dados pessoais estão incompletos ou pendente de validação pela equipe KPI Hunters.');
+      window.location.href = "#{n_profile_path}";
+    }

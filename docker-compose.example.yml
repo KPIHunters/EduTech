@@ -1,0 +1,38 @@
+version: '2'
+services:
+  db:
+    container_name: db
+    image: mysql:5.7
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db:/docker-entrypoint
+    env_file:
+      - .env
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: supersenha
+      MYSQL_ROOT_PASSWORD: supersenha
+    networks:
+      - app
+  app:
+    build: .
+    container_name: app
+    command: bash start.sh
+#    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    ports:
+      - "80:3000"
+    depends_on:
+      - db
+    links:
+      - db
+    networks:
+      - app
+
+
+networks:
+  app:

@@ -1,0 +1,15 @@
+-flash_type = nil
+-if flash[:notice]
+  -flash_type = 'notice'
+  -flash_msg = flash[:notice]
+-elsif flash[:error]
+  -flash_type = 'danger'
+  -flash_msg = flash[:error]
+-elsif flash[:alert]
+  -flash_type = 'warning'
+  -flash_msg = flash[:alert]
+
+-unless flash_type.nil?
+  div class="alert alert-#{flash_type}"
+    / button.close type="button" data-dismiss="alert" aria-hidden="true" &times;
+    =flash_msg

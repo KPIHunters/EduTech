@@ -1,0 +1,42 @@
+p#notice = notice
+
+p
+  strong Full name:
+  = @profile.full_name
+p
+  strong Phone:
+  = @profile.phone
+p
+  strong State ibge:
+  = @profile.state_ibge
+p
+  strong County ibge:
+  = @profile.county_ibge
+p
+  strong Full address:
+  = @profile.full_address
+p
+  strong Zip code:
+  = @profile.zip_code
+p
+  strong Company fantasy name:
+  = @profile.company_fantasy_name
+p
+  strong Company legal name:
+  = @profile.company_legal_name
+p
+  strong Website:
+  = @profile.website
+p
+  strong Gov:
+  = @profile.gov_id
+p
+  strong Description:
+  = @profile.description
+p
+  strong User:
+  = @profile.user
+
+=> link_to 'Edit', edit_profile_path(@profile)
+'|
+=< link_to 'Back', profiles_path

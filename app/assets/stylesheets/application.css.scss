@@ -1,0 +1,168 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ * require_tree .
+ * require_self
+ */
+
+/*
+ *= require autocomplete
+ * Frameworks
+ *= require flags/basic
+ *= require flags/flags16
+ *= require flags/flags24
+ * require themify-icons.css.erb
+ * require font-awesome/scss/font-awesome
+ * require font-awesome
+ *= require fontawesome-all.min
+ *= require light-bootstrap-dashboard
+ *= require creative-tim-pro/light_dashboard/bootstrap.min
+ *= require creative-tim-pro/light_dashboard/light-bootstrap-dashboard
+ */
+
+// Add-on
+@import "mixins";
+@import "helpers";
+
+// App Styles
+@import "views/sign";
+@import "views/localize";
+@import "views/connections";
+//@import "datatables";
+
+// FontAwesome
+//$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+//@import '@fortawesome/fontawesome-free/scss/fontawesome';
+//@import '@fortawesome/fontawesome-free/scss/solid';
+//@import '@fortawesome/fontawesome-free/scss/regular';
+//@import '@fortawesome/fontawesome-free/scss/brands';
+//@import '@fortawesome/fontawesome-free/scss/v4-shims';
+
+.cursor {
+    cursor: pointer;
+}
+
+[data-color="brand"]:after{
+  background: linear-gradient(#FB404B, rgba(#BB0502,.1));
+}
+
+.sidebar .nav.sm-txt {
+  i {
+    font-size: 21px;
+  }
+
+  p {
+    font-size: 9px;
+  }
+}
+
+.sidebar-wrapper.overflow {
+  overflow-y: auto !important;
+}
+
+.sidebar .nav [data-toggle="collapse"] ~ div > ul > li > a {
+  padding-left: 25px;
+}
+
+.card .card-header {
+  padding: 15px 15px 0;
+  background-color: #FFFFFF;
+  border-bottom: none !important;
+}
+
+.card .card-body {
+  padding: 15px 15px 10px 15px;
+}
+
+.wrapper .sidebar {
+  position: fixed;
+}
+
+.main-panel {
+  overflow-y: auto !important;
+}
+
+.margin-fix-card-user-mobile {
+  margin-bottom: 220px;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-notice {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.field_with_errors {
+  label {
+    font-size: 1.2rem;
+    color: red;
+  }
+
+  input {
+    border: 1px solid red;
+  }
+}
+
+.main-panel .content.no-min-height {
+  min-height: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+p.legend {
+  font-size: 1.25rem;
+}
+
+.attaches {
+  img {
+    margin-bottom: 10px;
+  }
+}
+
+textarea, p, input, label {
+  font-family: sans-serif !important;
+}
+
+.minmax-card-height {
+  //max-height: 410px;
+  min-height: 410px;
+}
+
+button#like {
+  font-size: 1.5em;
+  color: #1080F6FF;
+}
+
+button#dislike {
+  font-size: 1.5em;
+  color: #900000FF;
+}

@@ -1,0 +1,23 @@
+= form_for @lesson do |f|
+  - if @lesson.errors.any?
+    #error_explanation
+      -obj = @lesson
+      -if obj.errors.count == 1
+        h2 ="#{obj.errors.count} erro #{t('flash.error')}: "
+      -else
+        h2 ="#{obj.errors.count} erros #{t('flash.errors')}: "
+
+      ul
+        -obj.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :video_id
+    = f.text_field :video_id
+  .field
+    = f.label :period
+    = f.text_field :period
+  .actions = f.submit

@@ -1,0 +1,17 @@
+.user
+  .photo
+    =image_tag 'dumont.gif'
+  .info
+    a.collapsed data-toggle="collapse" href="#collapseExample"
+      =@current_user.full_name
+      b.caret
+    #collapseExample.collapse
+      ul.nav
+        -if @current_user.profile.nil?
+          -prof_path = new_profile_path
+        -else
+          -prof_path = edit_profile_path @current_user.profile.id
+        li: a href="#{prof_path}" Meu Perfil
+        / li: a href="#" Editar Perfil
+        / li: a href="#" Configurações
+        li =link_to 'Sair', destroy_user_session_path

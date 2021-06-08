@@ -1,0 +1,7 @@
+p ="Olá, seja bem-vindo(a) #{@email}!"
+
+p Para poder acessar nossa plataforma (KPIHunters) você precisa confirmar seu email no link abaixo:
+
+p =link_to 'Confirmar minha conta', confirmation_url(@resource, confirmation_token: @token)
+
+p Caso você não tenha se cadastrado em nossa plataforma, desconsidere este e-mail.

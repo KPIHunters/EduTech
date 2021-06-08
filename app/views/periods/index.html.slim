@@ -1,0 +1,25 @@
+h1 Listing periods
+
+table
+  thead
+    tr
+      th Name
+      th Order
+      th Course
+      th
+      th
+      th
+
+  tbody
+    - @periods.each do |periods|
+      tr
+        td = periods.name
+        td = periods.order
+        td = periods.course
+        td = link_to 'Show', periods
+        td = link_to 'Edit', edit_periods_path(periods)
+        td = link_to 'Destroy', periods, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Period', new_periods_path

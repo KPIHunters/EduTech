@@ -1,0 +1,25 @@
+h1 Listing admin_courses
+
+table
+  thead
+    tr
+      th Admin
+      th User
+      th Course
+      th
+      th
+      th
+
+  tbody
+    - @admin_courses.each do |admin_course|
+      tr
+        td = admin_course.admin
+        td = admin_course.user
+        td = admin_course.course
+        td = link_to 'Show', admin_course
+        td = link_to 'Edit', edit_admin_course_path(admin_course)
+        td = link_to 'Destroy', admin_course, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Admin course', new_admin_course_path

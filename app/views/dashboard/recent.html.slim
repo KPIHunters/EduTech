@@ -1,0 +1,14 @@
+#youtube_video
+
+javascript:
+    var channelID = "UCfsI-F8KtcNFpmxg7zMid-w";
+    var reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
+    $.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL) + channelID, function (data) {
+        const limit = 3;
+        for(let i in data.items) {
+            if(parseInt(i) === limit) break;
+            const link = data.items[i].link;
+            const id = link.substr(link.indexOf("=") + 1);
+            $("#youtube_video").append('<div class="row"><iframe width="100%" src="https://youtube.com/embed/'+id+'?controls=0&showinfo=0&rel=0" height="340" frameborder="0" allowfullscreen></div>')
+        }
+    });

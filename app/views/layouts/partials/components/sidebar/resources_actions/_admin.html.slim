@@ -1,0 +1,16 @@
+ul.nav
+  li class=(('active ' if current_page?(dashboard_path) || current_page?(root_path) || current_page_includes?('dashboard')))
+    a href="#{dashboard_path}"
+      / i.far.fa-chart-bar
+      i.fal.fa-tachometer-alt-fastest
+      p =t('actions.dashboard.name')
+  li class=(('active ' if current_page?(profiles_path)))
+    a href="#{profiles_path}"
+      / i.far.fa-chart-bar
+      i class="far fa-address-card"
+      p =t('actions.profiles.name')
+  li
+    a href="/rails/db"
+      / i.far.fa-chart-bar
+      i class="fas fa-database"
+      p =t('actions.rails_db.name')

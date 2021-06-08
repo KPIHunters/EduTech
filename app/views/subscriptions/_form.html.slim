@@ -1,0 +1,23 @@
+= form_for @subscription do |f|
+  - if @subscription.errors.any?
+    #error_explanation
+      -obj = @subscription
+      -if obj.errors.count == 1
+        h2 ="#{obj.errors.count} erro #{t('flash.error')}: "
+      -else
+        h2 ="#{obj.errors.count} erros #{t('flash.errors')}: "
+
+      ul
+        -obj.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :last_lesson
+    = f.text_field :last_lesson
+  .field
+    = f.label :user
+    = f.text_field :user
+  .field
+    = f.label :course
+    = f.text_field :course
+  .actions = f.submit

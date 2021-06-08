@@ -1,0 +1,172 @@
+-if !@current_user.profile.nil? && !@current_user.profile.validated_docs
+  .alert.alert-warning
+    b Atenção.
+    = ' Caso seus dados estejam completos e você ainda não possa ver às aulas é porque seus dados precisam ser validados pela equipe KPI Hunters'
+  br
+
+-if @profile.errors.any?
+  #error_explanation
+    -obj = @profile
+    -if obj.errors.count == 1
+      h2 ="#{obj.errors.count} erro #{t('flash.error')}: "
+    -else
+      h2 ="#{obj.errors.count} erros #{t('flash.errors')}: "
+
+    ul
+      -obj.errors.full_messages.each do |message|
+        li =message
+
+
+.row
+  .col-md-9.col-sm-12
+    =form_for @profile, html: {autocomplete: "off"} do |f|
+      .card
+        .card-header
+          h4.card-title Dados Pessoais
+        .card-body
+          .row
+            .col-md-6.pr-1
+              .form-group
+                label =t('activerecord.attributes.user.full_name')
+                input class='form-control' disabled='disabled' value="#{@current_user.full_name}"
+            .col-md-3.pr-1
+              .form-group
+                =f.label :gov_id_pf
+                =f.text_field :gov_id_pf, class: 'form-control'
+            .col-md-3.pr-1
+              .form-group
+                =f.label :phone
+                =f.text_field :phone, class: 'form-control'
+
+          .row
+            .col-md-3.pr-1
+              .form-group
+                =f.label :birthday
+                =f.text_field :birthday, class: 'form-control', value: formatted_date(@profile.birthday)
+            .col-md-7.pr-1
+              .form-group
+                =f.label :full_address
+                =f.text_field :full_address, class: 'form-control'
+            .col-md-2.pr-1
+              .form-group
+                =f.label :zip_code
+                =f.text_field :zip_code, class: 'form-control'
+
+          .row
+            .col-md-3.pr-1
+              .form-group
+                =f.label :state_ibge
+                .autocomplete
+                  =f.text_field :state_ibge, class: 'form-control', autocomplete: "new-password"
+            .col-md-9.pr-1
+              .form-group
+                =f.label :county_ibge
+                .autocomplete
+                  =f.text_field :county_ibge, class: 'form-control', autocomplete: "new-password"
+
+          .row
+            .col-md-4
+              .form-group
+                =f.label :bank_code
+                =f.text_field :bank_code, class: 'form-control', disabled: 'disabled', value: '001 - Banco do Brasil'
+            .col-md-4
+              .form-group
+                =f.label :bank_agency
+                =f.text_field :bank_agency, class: 'form-control'
+            .col-md-4
+              .form-group
+                =f.label :bank_account
+                =f.text_field :bank_account, class: 'form-control'
+          .row
+            .col-md-4.pr-1
+              .form-group
+                =f.label :facebook_link
+                .input-group
+                  span#fb.input-group-addon: i.fab.fa-facebook
+                  =f.text_field :facebook_link, class: 'form-control', 'aria-describedby' => 'fb'
+            .col-md-4.pr-1
+              .form-group
+                =f.label :twitter_link
+                .input-group
+                  span#tw.input-group-addon: i.fab.fa-twitter
+                  =f.text_field :twitter_link, class: 'form-control', 'aria-describedby' => 'tw'
+            .col-md-4.pr-1
+              .form-group
+                =f.label :linkedin_link
+                .input-group
+                  span#ln.input-group-addon: i.fab.fa-linkedin-in
+                  =f.text_field :linkedin_link, class: 'form-control', 'aria-describedby' => 'ln'
+
+          .row
+            .col-md-12
+              .form-group
+                =f.label :bio
+                =f.text_area :bio, class: 'form-control', rows: "10", placeholder: 'engenheiro eletricista; advogado; vendedor; trader; investidor; professor'
+
+        =f.submit class: 'btn btn-danger btn-fill pull-right', style: 'margin-bottom: 12px;margin-right: 15px;'
+        .clearfix
+
+
+  .col-md-3.col-sm-12
+    .card.card-user.margin-fix-card-user-mobile
+      .card-header.no-padding
+        .card-image
+          -if @profile.banner.attached?
+            =image_tag @profile.banner
+          -else
+            =image_tag 'data_analytics_banner.png'
+      .card-body
+        .author
+          a href="#"
+            -if @profile.photo.attached?
+              =image_tag @profile.photo, class: 'avatar border-gray'
+            -else
+              =image_tag 'dumont.gif', class: 'avatar border-gray'
+            h5.card-title =@current_user.short_name
+          p.card-description
+            =@current_user.username
+        p.card-description.text-center
+          =@profile.bio
+
+      .row
+
+      .card-footer
+        hr
+        .button-container.text-center
+          a href="#" class="btn btn-simple btn-link btn-icon" target="_blank"
+            i class="fab fa-facebook"
+          a href="#" class="btn btn-simple btn-link btn-icon" target="_blank"
+            i class="fab fa-twitter"
+          a href="#" class="btn btn-simple btn-link btn-icon" target="_blank"
+            i class="fab fa-linkedin-in"
+        / hr
+        / .button-container
+        /   a.btn.btn-danger.btn-fill href="#" onclick="deleteAccount()" Excluir Conta
+
+script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"
+javascript:
+  autocomplete(document.getElementById("profile_state_ibge"), states_ibge);
+  autocomplete(document.getElementById("profile_county_ibge"), county_ibge);
+
+  // preview images
+  $("#profile_legal_doc").change(function () {readURL(this, "#profile_legal_doc_img", 135, 250);});
+  $("#profile_banner").change(function () {readURL(this, "#profile_banner_img", 135, 250);});
+  $("#profile_signature").change(function () {readURL(this, "#profile_signature_img", 135, 250);});
+  $("#profile_photo").change(function () {readURL(this, "#profile_photo_img", 135, 135);});
+  $("#profile_selfie").change(function () {readURL(this, "#profile_selfie_img", 135, 135);});
+  $("#profile_third_part_receive_equipments").change(function () {readURL(this, "#third_part_receive_equipments_img", 250, 135);});
+
+  // Mask Fields
+  $cpf = $("#profile_gov_id_pf");
+  $cpf.mask('000.000.000-00', {reverse: true});
+  $phone = $("#profile_phone");
+  $phone.mask("(00) 00000-0000");
+  $zip = $("#profile_zip_code")
+  $zip.mask("00.000-000");
+  $birthday = $("#profile_birthday")
+  $birthday.mask("00/00/0000");
+
+  function deleteAccount() {
+      if (confirm('Você realmente deseja excluir sua conta? Todos seus dados serão excluídos permanentemente e não poderão ser recuperados.'))
+          window.location.href = "#{delete_account_path}"
+  }

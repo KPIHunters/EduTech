@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Last lesson:
+  = @subscription.last_lesson
+p
+  strong User:
+  = @subscription.user
+p
+  strong Course:
+  = @subscription.course
+
+=> link_to 'Edit', edit_subscription_path(@subscription)
+'|
+=< link_to 'Back', subscriptions_path

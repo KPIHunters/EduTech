@@ -1,0 +1,15 @@
+# encoding: UTF-8
+# pt-br translations for Controllers Actions
+pt-br:
+  flash:
+    profiles:
+      create: Seu perfil foi criado com sucesso.
+      update: Seu perfil foi atualizado com sucesso.
+    error: impediu de cadastrar os dados
+    errors: impediram de cadastrar os dados
+    mandatory: é obrigatório
+    checked_docs: após a validação documental você não poderá mais editar seu perfil
+    invalid: inválido, verifique se digitou corretamente
+    invalid_association: associação inválida
+    ibge: o município não pertence ao estado selecionado
+    verify: verifique estes dados e tente novamente

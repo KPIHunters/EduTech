@@ -1,0 +1,10 @@
+=form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+  =render "users/shared/error_messages", resource: resource
+  .card.card-hidden
+    .header.text-center =user_action_title
+    .content
+      .form-group
+        =f.label :email
+        =f.email_field :email, class: 'form-control', required: true, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+    .footer.text-center
+      =f.submit t('actions.devise.new.button.confirmation'), class: 'btn btn-fill btn-info btn-wd'

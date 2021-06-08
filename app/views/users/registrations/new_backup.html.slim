@@ -1,0 +1,154 @@
+=form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  =render "users/shared/error_messages", resource: resource
+  =hidden_field_tag 'user[locale]', 'pt-br'
+
+  .container
+    .row
+      .card.col-12
+        .card-body
+          h5.card-title Sua conta
+          .row
+            .col-6
+              =f.label :name
+              =f.text_field :name, class: 'form-control', autofocus: true, required: true
+            .col-6
+              =f.label :surname
+              =f.text_field :surname, class: 'form-control', required: true
+          .row
+            .col-6
+              =f.label :email
+              =f.email_field :email, autocomplete: "email", class: 'form-control', required: true
+            .col-6
+              =f.label :email_confirmation
+              =f.email_field :email_confirmation, class: 'form-control', required: true
+          .row
+            .col-6
+              =f.label :password
+              -if @minimum_password_length
+                em
+                  =@minimum_password_length
+                  | characters minimum
+              =f.password_field :password, autocomplete: "new-password", class: 'form-control', required: true
+            .col-6
+              =f.label :password_confirmation
+              =f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', required: true
+
+  br
+
+  .container
+    .row
+      .card.col-12
+        .card-body
+          h5.card-title Redes sociais
+          =f.fields_for :tmp_profile do |fi|
+            .row
+              .col-6
+                / =fi.label :insta_url
+                label for="user_tmp_profile_insta_url" Link para seu principal perfil do Instagram
+                =fi.text_field :insta_url, class: 'form-control', placeholder: "https://instagram.com/your-username"
+              .col-6
+                / = fi.label :insta_fan_count
+                label for="user_tmp_profile_insta_fan_count" Quantidade de Seguidores/Fãs do seu perfil no Instagram
+                = fi.text_field :insta_fan_count, class: 'form-control', placeholder: "0"
+            .row
+              .col-6
+                / =fi.label :fb_url
+                label for="user_tmp_profile_fb_url" Link para seu principal perfil do Facebook
+                =fi.text_field :fb_url, class: 'form-control', placeholder: "https://facebook.com/your-username"
+              .col-6
+                / =fi.label :fb_fan_count
+                label for="user_tmp_profile_fb_fan_count" Quantidade de Seguidores/Fãs do seu perfil no Facebook
+                =fi.text_field :fb_fan_count, class: 'form-control', placeholder: "0"
+            .row
+              .col-6
+                / =fi.label :yt_url
+                label for="user_tmp_profile_yt_url" Link para seu principal perfil do YouTube
+                =fi.text_field :yt_url, class: 'form-control', placeholder: "https://youtube.com/your-username"
+              .col-6
+                / =fi.label :yt_fan_count
+                label for="user_tmp_profile_yt_fan_count" Quantidade de Seguidores/Fãs do seu perfil no YouTube
+                =fi.text_field :yt_fan_count, class: 'form-control', placeholder: "0"
+
+  / .row
+  /   .col-6
+  /     label for="instagram" Instagram
+  /     input id="instagram" class='form-control' disabled='disabled'
+  /     =hidden_field_tag 'user[instagram_token]', resource.instagram_token
+  /   .col-6
+  /     a.btn.btn-warning Conectar Instagram
+  / .row
+  /   .col-6
+  /     label for="instagram" Instagram
+  /     input id="instagram" class='form-control' disabled='disabled'
+  /     a href="https://help.instagram.com/502981923235522?fbclid=IwAR2XXDrJ9UuZHvZFVUWVuzi6gth0cj-sQMH7bEhTkuCntgrRwRgVmV8rA0k" target="_blank" Você precisa ter uma conta business para usar o ShopLinks
+  /
+  /     br
+  /
+  /     label for="facebook" Facebook
+  /     textarea id="facebook" class='form-control' rows="5" disabled='disabled'
+  /   .col-6
+  /     / =link_to "Conectar Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-primary"
+  /     a.btn.btn-primary onclick="fbLogin()" Conectar Facebook
+  / .row
+  /   .col-6
+  /     label for="youtube" YouTube
+  /     input id="youtube" class='form-control' disabled='disabled'
+  /   .col-6
+  /     a.btn.btn-danger onclick="handleAuthClick()" Conectar YouTube
+
+  br
+
+  /! TODO:
+  .container
+    .row
+      .card.col-12
+        .card-body
+          h5.card-title Conte-nos um pouco
+          .row
+            .col-12
+              =f.label :target_audience
+              .row
+              -@target_audience.each_with_index do |ta, i|
+                =f.radio_button :target_audience_id, ta.id, required: true
+                =label_tag "user_target_audience_id_#{i+1}", ta.name
+          .row
+            .col-12
+              =f.label :product_type
+              .row
+              -@product_types.each_with_index do |ta, i|
+                =f.radio_button :product_type_id, ta.id, required: true
+                =label_tag "user_product_type_id_#{i + 1}", ta.name
+          hr
+          .row
+            .col-12
+              =f.label :about_me
+              =f.text_area :about_me, class: 'form-control'
+          / =f.text_area :about_me, class: 'form-control', required: true
+          .row
+            .col-12
+              =f.label :about_my_followers
+              =f.text_area :about_my_followers, class: 'form-control'
+  / =f.text_area :about_my_followers, class: 'form-control', required: true
+
+  br
+
+  .container
+    .row
+      .card.col-12
+        .card-body
+          h5.card-title Preferências
+          =f.label :term_type
+          .row
+          -@term_types.each_with_index do |tt, i|
+            =f.radio_button :term_type_id, tt.id, required: true
+            =label_tag "user_term_type_id_#{i + 1}", tt.name
+          .row
+          label
+            =f.check_box :public_profile, required: true
+            =t('activerecord.attributes.user.public_profile')
+
+  .actions
+    =f.submit "Sign up"
+
+=render "users/shared/links"
+=render 'layouts/partials/social_js'

@@ -1,0 +1,74 @@
+h4 Listagem de perfil dos alunos
+
+.row
+  -@profiles.each do |profile|
+    .col-md-3.col-sm-12.col-xl-2
+      .card.card-user.margin-fix-card-user-mobile.minmax-card-height
+        .card-header.no-padding
+          .card-image
+            -if profile.banner.attached?
+              =image_tag profile.banner
+            -else
+              =image_tag 'data_analytics_banner.png'
+        .card-body
+          .author
+            a href="#"
+              -if profile.photo.attached?
+                =image_tag profile.photo, class: 'avatar border-gray'
+              -else
+                =image_tag 'dumont.gif', class: 'avatar border-gray'
+              h5.card-title =profile.user.short_name
+            p.card-description
+              =profile.user.username
+          h6.text-center
+            i class="fas fa-map-marker-alt"
+            = ' '
+            span.county =profile.county_ibge
+            = ' - '
+            span.state =IBGE['states'][:"#{profile.state_ibge}"]
+          / p.card-description.text-center.text-truncate
+          /   =profile.truncate_bio
+
+          .row
+            -if profile.legal_doc.attached?
+              -legal_doc_path =profile.legal_doc.service_url
+            -else
+              -legal_doc_path ='#'
+            a href="#{legal_doc_path}" class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
+              i class="fal fa-id-card"
+              =" CNH ou RG"
+
+            -if profile.selfie.attached?
+              -selfie_path =profile.selfie.service_url
+            -else
+              -selfie_path ='#'
+            a href="#{selfie_path}" class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
+              i class="fal fa-portrait"
+              =" Selfie com documento"
+
+            - if profile.signature.attached?
+              -signature_path =profile.signature.service_url
+            - else
+              -signature_path = '#'
+            a href="#{signature_path}"  class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
+              i class="fal fa-file-contract"
+              = " Assinatura"
+            - if profile.third_part_receive_equipments.attached?
+              - third_part_receive_equipments_path =profile.third_part_receive_equipments.service_url
+            - else
+              - third_part_receive_equipments_path = '#'
+            a href="#{third_part_receive_equipments_path}" class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
+              i class="fal fa-file-contract"
+              = " Retirada equipamentos por terceiro"
+
+
+javascript:
+  $counties = $('.county');
+  for(let c in $counties) {
+      if (!isNaN(c)) {
+          county = county_ibge_hash[$counties[c].textContent];
+          $counties[c].textContent = county;
+      }
+  }
+
+
