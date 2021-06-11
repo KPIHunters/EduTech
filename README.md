@@ -1,5 +1,5 @@
-# Libertaria.Tech - HotMarket - App Edu KPI Hunters
-HotMart Libertário
+# Public Tech Teach Platform
+Teach technology with open source platform & public content to bring tech knolodge for everyone
 
 # SSL
 Localhost HTTPS para testes como o do facebook: https://rossta.net/blog/local-ssl-for-rails-5.html#resolve-a-domain-name-to-localhost
