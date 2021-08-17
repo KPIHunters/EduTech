@@ -1,10 +1,11 @@
 # Public Tech Teach Platform
-Teach technology with open source platform & public content to bring tech knolodge for everyone
+Teach technology with open source platform & public content to bring tech knowledge for everyone
 
 # Node version fix
 
 1. npm install -g n
 2. sudo n stable
+3. nvm
 
 # SSL
 Localhost HTTPS para testes como o do facebook: https://rossta.net/blog/local-ssl-for-rails-5.html#resolve-a-domain-name-to-localhost
