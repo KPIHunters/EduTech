@@ -22,17 +22,15 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
   # MAC
-  #username: postgres
-  #password: postgres
-  # Windows
-  #username: pguser
-  #password: pguser
   username: <%= NENV['APP_DB_USER'] %>
   password: <%= NENV['APP_DB_PASSWORD'] %>
+  # WINDOWS
+  #username: pguser
+  #password: pguser
 
 development:
   <<: *default
-  database: hotmarket_development
+  database: gov_edu_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -66,7 +64,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: hotmarket_test
+  database: gov_edu_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
