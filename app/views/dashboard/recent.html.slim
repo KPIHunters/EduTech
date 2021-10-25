@@ -20,10 +20,14 @@ javascript:
   
       const limit = 3;
       for(const i in data.items) {
-          if(parseInt(i) === limit) break;
           const link = data.items[i].link;
           const id = link.substr(link.indexOf("=") + 1);
-          $("#youtube_video").append('<div class="row"><div class="col"><div class="card"><div class="card-header"><h4 class="card-title">Vídeo #'+i+'</h4></div><div class="card-body"><iframe width="100%" src="https://youtube.com/embed/'+id+'?controls=0&showinfo=0&rel=0" height="340" frameborder="0" allowfullscreen></div></div></div></div>')
+          $("#youtube_video").append('' +
+              '<div class="row"><div class="col"><div class="card"><div class="card-header">' +
+              '<h4 class="card-title">Vídeo #'+i+'</h4></div><div class="card-body">' +
+              '<iframe width="100%" src="https://youtube.com/embed/'+id+'?controls=1&showinfo=0&rel=0" height="340" ' +
+              'frameborder="0" allowfullscreen></div></div></div></div>');
+          if (parseInt(i) === limit) break;
       }
   
       Swal.close();
