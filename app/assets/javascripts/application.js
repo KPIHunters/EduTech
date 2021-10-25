@@ -34,6 +34,7 @@
 //= require creative-tim-pro/light_dashboard/bootstrap-table
 //= require creative-tim-pro/light_dashboard/jquery.datatables
 // require datatables
+//= require sweetalert2.all.min
 
 // Theme
 //= require creative-tim-pro/light_dashboard/light-bootstrap-dashboard
