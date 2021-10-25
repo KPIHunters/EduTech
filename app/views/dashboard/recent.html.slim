@@ -1,30 +1,30 @@
 #youtube_video
 
 javascript:
-    const channelID = "UCfsI-F8KtcNFpmxg7zMid-w";
-    const reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
-
-    Swal.fire({
-        title: 'Carregando Vídeos Recentes',
-        html: '',
-        didOpen: () => {
-            Swal.showLoading();
-        }
-    });
-    
-    $.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL) + channelID, function (data) {
-        
-        if(data.items.length === 0) {
-            $("#youtube_video").append('<h1>Nenhum vídeo encontrado, tente novamente mais tarde</h1>');
-        }
-
-        const limit = 3;
-        for(const i in data.items) {
-            if(parseInt(i) === limit) break;
-            const link = data.items[i].link;
-            const id = link.substr(link.indexOf("=") + 1);
-            $("#youtube_video").append('<div class="row"><div class="col"><div class="card"><div class="card-header"><h4 class="card-title">Vídeo #'+i+'</h4></div><div class="card-body"><iframe width="100%" src="https://youtube.com/embed/'+id+'?controls=0&showinfo=0&rel=0" height="340" frameborder="0" allowfullscreen></div></div></div></div>')
-        }
-
-        Swal.close();
-    });
+  const channelID = "#{{Rails.env.production? ? 'UCfsI-F8KtcNFpmxg7zMid-w' : 'UClTKqDyINIM7dDlF8U5d1TA'}}";
+  const reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
+  
+  Swal.fire({
+      title: 'Carregando Vídeos Recentes',
+      html: '',
+      didOpen: () => {
+          Swal.showLoading();
+      }
+  });
+  
+  $.getJSON("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(reqURL) + channelID, function (data) {
+      
+      if(data.items.length === 0) {
+          $("#youtube_video").append('<h1>Nenhum vídeo encontrado, tente novamente mais tarde</h1>');
+      }
+  
+      const limit = 3;
+      for(const i in data.items) {
+          if(parseInt(i) === limit) break;
+          const link = data.items[i].link;
+          const id = link.substr(link.indexOf("=") + 1);
+          $("#youtube_video").append('<div class="row"><div class="col"><div class="card"><div class="card-header"><h4 class="card-title">Vídeo #'+i+'</h4></div><div class="card-body"><iframe width="100%" src="https://youtube.com/embed/'+id+'?controls=0&showinfo=0&rel=0" height="340" frameborder="0" allowfullscreen></div></div></div></div>')
+      }
+  
+      Swal.close();
+  });
