@@ -1,22 +1,22 @@
-h2 Change your password
-
 =form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
   =render "users/shared/error_messages", resource: resource
   =f.hidden_field :reset_password_token
+  
+  .card.card-hidden
+    .header.text-center = user_action_title
+    .content
+      = devise_alerts
+      .form-group
+        =f.label :password, "Nova senha"
+        - if @minimum_password_length
+          em = "(#{@minimum_password_length} characters minimum)"
+          br
+        =f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control'
+      .form-group
+        =f.label :password_confirmation, "Confirmar nova senha"
+        =f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
 
-  .field
-    =f.label :password, "New password"
-    br
-    -if @minimum_password_length
-      em ="(#{@minimum_password_length} characters minimum)"
-      br
-    =f.password_field :password, autofocus: true, autocomplete: "new-password"
+    .footer.text-center
+      =f.submit 'Mudar minha senha', class: 'btn btn-fill btn-info btn-wd'
 
-  .field
-    =f.label :password_confirmation, "Confirm new password"
-    br
-    =f.password_field :password_confirmation, autocomplete: "new-password"
-
-  .actions
-    =f.submit "Change my password"
-=render "users/shared/links"
+=render 'devise/shared/flash'
