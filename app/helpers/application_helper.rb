@@ -1,7 +1,7 @@
 module ApplicationHelper
   # Must return it product name
   def product_name
-    t('descriptions.product_name')
+    t('descriptions.product_name').html_safe
   end
 
   def product_name_short
