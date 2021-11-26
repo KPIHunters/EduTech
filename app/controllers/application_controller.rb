@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_sidebar
   before_action :set_locale
-  # TODO fix it in future
+  # TODO: fix it in future
   skip_before_action :verify_authenticity_token
 
   # Update user locale
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   # 404 Rendered
   def not_found
-    raise ActionController::RoutingError.new('Not Found')
+    raise ActionController::RoutingError, 'Not Found'
   end
 
   protected
@@ -40,14 +40,15 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(_resource_or_scope)
     new_user_session_path
   end
 
   def set_sidebar
-    # TODO refactor for HotMarket model in future
-    unless @current_user.nil?
+    # TODO: refactor for HotMarket model in future
+    unless @current_user.nil? || NENV['ONLY_ADMIN_COURSE'] == '0'
       @course = Course.first
       @periods = @course.periods
     end
@@ -55,10 +56,19 @@ class ApplicationController < ActionController::Base
 
   def simple_permission_checker
     return if "#{params[:controller]}/#{params[:action]}" == 'users/sessions/destroy'
-    if !@current_user.nil? && !@current_user.admin && !%w[profiles dashboard].include?(params[:controller])
-      if params[:action] != 'show'
-        redirect_to root_path
-      end
+
+    forbidden = false
+
+    # if only the admin can manage the courses/lessons
+    if NENV['ONLY_ADMIN_COURSE'] == '1'
+      not_admin = (!@current_user.nil? && !@current_user.admin && !%w[profiles dashboard].include?(params[:controller]))
+      forbidden = true if not_admin && params[:action] != 'show'
+    elsif devise_controller?
+      forbidden = false
+    elsif (@current_user.nil? && !devise_controller?) && ![Role::PUBLISHER, Role::ADMIN].include?(@current_user.role_id)
+      forbidden = true
     end
+
+    redirect_to root_path, warning: 'Você não possui permissão para acessar esta página' if forbidden
   end
 end

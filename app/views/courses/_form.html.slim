@@ -1,21 +1,21 @@
 = form_for @course do |f|
   - if @course.errors.any?
     #error_explanation
-      -obj = @course
-      -if obj.errors.count == 1
-        h2 ="#{obj.errors.count} erro #{t('flash.error')}: "
-      -else
-        h2 ="#{obj.errors.count} erros #{t('flash.errors')}: "
-
+      h2 = error_msg(@course)
       ul
-        -obj.errors.full_messages.each do |message|
+        - @course.errors.full_messages.each do |message|
           li = message
 
+  .row
+    .col-md-12.col-sm-12
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+  .row
+    .col-md-12.col-sm-12
+      .form-group
+        = f.label :description
+        = f.text_area :description, class: 'form-control'
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_field :description
-  .actions = f.submit
+  = f.submit class: 'btn btn-success btn-fill pull-right'
+  .clearfix

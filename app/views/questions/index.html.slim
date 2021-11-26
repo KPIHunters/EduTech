@@ -1,0 +1,24 @@
+.container-fluid
+  .row
+    table.smart-table.table.col-md-12.col-xs-12
+      thead
+        tr
+          th =t('activerecord.attributes.question.name')
+          th =t('activerecord.attributes.question.options')
+          th =t('activerecord.attributes.question.target')
+          th
+          th
+          th
+
+      tbody
+        - @questions.each do |question|
+          tr
+            td = question.name
+            td = question.options
+            td = question.target
+            td =link_to question_path(question) do
+              i.fa.fa-eye
+            td =link_to edit_question_path(question) do
+              i.fa.fa-edit
+            td =link_to question, data: {confirm: 'Você tem certeza de que deseja deletar este registro?'}, method: :delete do
+              i.fa.fa-trash.text-danger

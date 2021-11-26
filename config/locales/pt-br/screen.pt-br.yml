@@ -74,3 +74,17 @@ pt-br:
       edit:
         title: Editando Instituição de Ensino
         subtitle: As escolas foram importadas da base do MEC, porém podem ser editadas e/ou excluídas.
+    courses:
+      index:
+        title: Lista de Cursos
+        subtitle: Estes são os cursos que você administra (criados por você ou associados a ti)
+      new:
+        title: Cadastrar novo curso
+        subtitle: Cadastrando um novo curso você será o administrador e poderá adicionar outras pessoas
+    questions:
+      index:
+        title: Lista de Perguntas
+        subtitle: As perguntas e respostas são reutilizáveis
+      new:
+        title: Cadastrar nova questão
+        subtitle: Cadastrando uma nova questão você pode assocá-la às aulas/módulos

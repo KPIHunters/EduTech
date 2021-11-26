@@ -42,7 +42,7 @@ pt-br:
       title: Uso Global do Sistema
       subtitle: Todos alunos que foram aprovados
     profiles:
-      name: Perfis dos alunos
+      name: Perfis dos usuários
     rails_db:
       name: Database
     users:
@@ -51,22 +51,6 @@ pt-br:
       subtitle: Todos os usuários do sistema são cadastrados
       new: Cadastrar novo usuário
       edit: Editar usuário
-    courses:
-      ti: Programação
-      ds: Ciência de Dados
-      mkt: Marketing Digital
-      iot: IoT (Eletrônica)
-      name: Lista de Cursos
-      all: Todos Cursos
-      mine: Meus Cursos
-      subtitle: Todas as Instituições de Ensino do sistema são cadastrados e mantidas pela Direção/Secretaria
-      new: Cadastrar nova Instituição de Ensino
-      edit: Editar Instituição de Ensino
-      button:
-        new: Cadastrar Instituição de Ensino
-        create: Cadastrar Instituição de Ensino
-        edit: Atualizar Instituição de Ensino
-        update: Atualizar Instituição de Ensino
     lessons:
       name: Disciplinas
       action_name: Oferta de disciplinas
@@ -94,3 +78,25 @@ pt-br:
       name: Cursos Assinados
       action_name: Minhas Aulas/Cursos
       act_name: Assinar Aula/Curso
+    courses:
+      ti: Programação
+      ds: Ciência de Dados
+      mkt: Marketing Digital
+      iot: IoT (Eletrônica)
+      name: Lista de Cursos
+      all: Todos Cursos
+      mine: Meus Cursos
+      subtitle: Todas as Instituições de Ensino do sistema são cadastrados e mantidas pela Direção/Secretaria
+      new: Cadastrar novo curso
+      edit: Editar Instituição de Ensino
+      index: Listar cursos
+      button:
+        new: Cadastrar curso
+        create: Cadastrar curso
+        edit: Atualizar curso
+        update: Atualizar curso
+    questions:
+      name: Questões de prova
+      new: Cadastrar nova questão de prova
+      edit: Editar questão de prova
+      index: Listar questões de prova

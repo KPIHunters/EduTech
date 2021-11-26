@@ -8,6 +8,8 @@ pt-br:
       researcher: Pesquisador
       experience: Experiência
       profile: Dados Pessoais
+      course: Curso
+      question: Pergunta
 
     attributes:
 
@@ -49,3 +51,16 @@ pt-br:
         bank_account: Conta Bancária (com dígito verificador)
         created_at: Criada em
         updated_at: Atualizada em
+
+  # Course -----------------------------------------------------
+      course:
+        name: Nome do curso
+        description: Descrição do curso
+        periods: Módulos
+        lessons: Aulas
+
+  # Question -----------------------------------------------------
+      question:
+        name: Pergunta
+        target: Resposta
+        options: Opções

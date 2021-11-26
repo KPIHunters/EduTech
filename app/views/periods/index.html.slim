@@ -1,25 +1,18 @@
-h1 Listing periods
+.container-fluid
+  .row
+    table.smart-table.table.col-md-12.col-xs-12
+      thead
+        tr
+          th =t('activerecord.attributes.period.name')
+          th =t('activerecord.attributes.period.order')
+          th =t('activerecord.attributes.period.icon')
+          th
+          th
+          th
 
-table
-  thead
-    tr
-      th Name
-      th Order
-      th Course
-      th
-      th
-      th
-
-  tbody
-    - @periods.each do |periods|
-      tr
-        td = periods.name
-        td = periods.order
-        td = periods.course
-        td = link_to 'Show', periods
-        td = link_to 'Edit', edit_periods_path(periods)
-        td = link_to 'Destroy', periods, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Period', new_periods_path
+      tbody
+        - @periods.each do |period|
+          tr
+            td = period.name
+            td = period.order
+            td Teste

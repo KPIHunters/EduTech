@@ -66,6 +66,18 @@ module ApplicationHelper
     @current_user.admin?
   end
 
+  def publisher?
+    @current_user.role_id == Role::PUBLISHER 
+  end
+
+  def buyer?
+    @current_user.role_id == Role::BUYER
+  end
+
+  def affiliate?
+    @current_user.role_id == Role::AFFILIATE
+  end
+
   def current_page_includes?(path)
     !request.fullpath.index(path).nil?
   end
@@ -105,5 +117,9 @@ module ApplicationHelper
 
     # TODO add locale validation
     dt.strftime("%d/%m/%Y")
+  end
+
+  def error_msg(obj)
+    "O salvamento foi impedido por #{pluralize(obj.errors.count, 'erro')}:"
   end
 end

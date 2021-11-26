@@ -19,7 +19,12 @@ html
           -if admin?
             =render 'layouts/partials/components/sidebar/resources_actions/admin'
           -else
-            =render 'layouts/partials/components/sidebar/resources_actions/user'
+            -if buyer?
+              =render 'layouts/partials/components/sidebar/resources_actions/buyer'
+            -elsif publisher?
+              =render 'layouts/partials/components/sidebar/resources_actions/publisher'
+            -elsif affiliate?
+              =render 'layouts/partials/components/sidebar/resources_actions/affiliate'
 
           / -if admin?
           /   =render 'layouts/partials/components/sidebar/resources_actions/admin'
@@ -66,6 +71,22 @@ html
                           -if @card_title
                             h1 =@card_title
                             p =@card_subtitle
+                          - else
+                            .col-xs-12.col-sm-12.col-md-8.col-lg-8
+                              - if params[:action] == 'index' || !t("screen.#{params[:controller]}.#{locale_action}.title").nil?
+                                h4.title = t("screen.#{params[:controller]}.#{locale_action}.title")
+                              - else
+                                h4.title = t("actions.#{params[:controller]}.#{locale_action}")
+                              p.category
+                                = t("screen.#{params[:controller]}.#{locale_action}.subtitle")
+                                br
+                            .col-xs-12.col-sm-12.col-md-4.col-lg-4
+                              - action_path = default_action_path
+                              - if action_path
+                                - action = action_path.split('_')[0]
+                                = link_to t("actions.#{params[:controller]}.#{action}"),
+                                        send(action_path, @current_obj),
+                                        class: 'btn btn-info'
                       hr
                     .content.no-min-height
                       =yield

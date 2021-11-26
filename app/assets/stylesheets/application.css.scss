@@ -167,3 +167,34 @@ button#dislike {
   font-size: 1.5em;
   color: #900000FF;
 }
+
+table.dataTable thead .sorting_asc:after {
+  content: "↓";
+  top: 3px;
+}
+
+table.dataTable thead .sorting_desc:after {
+  content: "↑";
+  top: 3px;
+}
+
+table.dataTable thead .sorting:after {
+  content: "↓↑";
+}
+
+.btn-success {
+  border: 1px solid teal;
+  color: #FFFFFF;
+  background-color: teal !important;
+  cursor: pointer;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.open>.btn-success.dropdown-toggle {
+  background-color: #005a5a !important;
+  color: #FFFFFF;
+  border: 1px solid #005a5a;
+}

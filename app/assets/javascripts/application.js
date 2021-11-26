@@ -148,6 +148,14 @@ function setup() {
         }
     }
 
+    if($('.smart-table').length && !$.fn.DataTable.isDataTable( '.smart-table' )) {
+        $('.smart-table').DataTable({
+            "language": {
+                "url": "/Portuguese.json"
+            }
+        });
+    }
+
 }
 
 

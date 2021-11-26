@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :full_name, limit: 70, null: false
       t.column :locale, 'char(5)', null: false, default: 'pt-br' # Brazil Locale
       t.string :timezone, null: false, default: '-03:00' # Brazil Official TimeZone
-      # t.integer :role_id # TheRole gem field
+      t.integer :role_id, null: false # TheRole gem field
       t.boolean :admin, null: false, default: false
       t.datetime :deleted_at, null: true
 

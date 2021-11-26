@@ -1,0 +1,27 @@
+= form_for @question do |f|
+  - if @question.errors.any?
+    #error_explanation
+      h2 = error_msg(@question)
+      ul
+        - @question.errors.full_messages.each do |message|
+          li = message
+
+  .row
+    .col-md-12.col-sm-12
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+  .row
+    .col-md-12.col-sm-12
+      .form-group
+        = f.label :target
+        = f.text_field :target, class: 'form-control'
+  .row
+    .col-md-12.col-sm-12
+      .form-group
+        = f.label :options
+        = f.text_field :options, class: 'form-control'
+
+
+  = f.submit class: 'btn btn-success btn-fill pull-right'
+  .clearfix

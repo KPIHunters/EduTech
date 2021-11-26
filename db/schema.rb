@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_202121) do
+ActiveRecord::Schema.define(version: 2021_11_26_180840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,14 @@ ActiveRecord::Schema.define(version: 2021_03_03_202121) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string "name"
+    t.string "target"
+    t.string "options"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name", limit: 25, null: false
     t.string "title", limit: 55
@@ -147,6 +155,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_202121) do
     t.string "full_name", limit: 70, null: false
     t.string "locale", limit: 5, default: "pt-br", null: false
     t.string "timezone", default: "-03:00", null: false
+    t.integer "role_id", null: false
     t.boolean "admin", default: false, null: false
     t.datetime "deleted_at"
     t.string "email", default: "", null: false

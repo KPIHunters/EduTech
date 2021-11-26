@@ -1,0 +1,15 @@
+ul.nav
+  li class=(('active ' if current_page?(recent_videos_path) || current_page?(root_path) || current_page_includes?('recent')))
+    a href="#{recent_videos_path}"
+      i.fal.fa-history
+      p =t('actions.recent_videos.name')
+
+  li class=(('active ' if current_page?(courses_path) || current_page_includes?('courses')))
+    a href="#{courses_path}"
+      i class="fas fa-graduation-cap"
+      p = t('actions.courses.name')
+
+  li class=(('active ' if current_page?(questions_path) || current_page_includes?('questions')))
+    a href="#{questions_path}"
+      i class="fas fa-question-circle"
+      p = t('actions.questions.name')

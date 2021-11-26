@@ -9,8 +9,7 @@ class PeriodsController < ApplicationController
 
   # GET /periods/1
   # GET /periods/1.json
-  def show
-  end
+  def show; end
 
   # GET /periods/new
   def new
@@ -18,8 +17,7 @@ class PeriodsController < ApplicationController
   end
 
   # GET /periods/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /periods
   # POST /periods.json

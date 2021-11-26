@@ -17,7 +17,8 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :admin_courses, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
-  has_many :courses, through: :subscriptions, dependent: :destroy
+  has_many :subscribed_courses, through: :subscriptions, source: :course, dependent: :destroy
+  has_many :administrated_courses, through: :admin_courses, source: :course, dependent: :destroy
 
   # Validations
   validates :full_name, length: { minimum: 5, maximum: 70 }, presence: true
