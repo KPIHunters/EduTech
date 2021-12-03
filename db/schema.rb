@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_26_180840) do
+ActiveRecord::Schema.define(version: 2021_12_03_111326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 2021_11_26_180840) do
     t.index ["user_id"], name: "index_admin_courses_on_user_id"
   end
 
+  create_table "apps", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "domain", null: false
+    t.boolean "registrable", default: false
+    t.boolean "is_active", default: true
+    t.datetime "deleted_at"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_apps_on_user_id"
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "name", limit: 70, null: false
     t.string "description", limit: 250, null: false
@@ -54,6 +66,21 @@ ActiveRecord::Schema.define(version: 2021_11_26_180840) do
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cross_apps", force: :cascade do |t|
+    t.string "name"
+    t.bigint "app_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["app_id"], name: "index_cross_apps_on_app_id"
+    t.index ["course_id"], name: "index_cross_apps_on_course_id"
+  end
+
+  create_table "cross_apps_oauth_configs", id: false, force: :cascade do |t|
+    t.bigint "oauth_config_id", null: false
+    t.bigint "cross_app_id", null: false
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -80,6 +107,15 @@ ActiveRecord::Schema.define(version: 2021_11_26_180840) do
     t.integer "sort_position"
     t.text "description"
     t.index ["period_id"], name: "index_lessons_on_period_id"
+  end
+
+  create_table "oauth_configs", force: :cascade do |t|
+    t.string "provider"
+    t.string "provider_app_id"
+    t.string "provider_app_secret"
+    t.string "scope"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "periods", force: :cascade do |t|
@@ -124,9 +160,10 @@ ActiveRecord::Schema.define(version: 2021_11_26_180840) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "name"
-    t.string "target"
-    t.string "options"
+    t.string "name", null: false
+    t.string "target", null: false
+    t.string "options", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -155,7 +192,7 @@ ActiveRecord::Schema.define(version: 2021_11_26_180840) do
     t.string "full_name", limit: 70, null: false
     t.string "locale", limit: 5, default: "pt-br", null: false
     t.string "timezone", default: "-03:00", null: false
-    t.integer "role_id", null: false
+    t.integer "role_id", default: 3, null: false
     t.boolean "admin", default: false, null: false
     t.datetime "deleted_at"
     t.string "email", default: "", null: false
@@ -192,6 +229,9 @@ ActiveRecord::Schema.define(version: 2021_11_26_180840) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "admin_courses", "courses"
   add_foreign_key "admin_courses", "users"
+  add_foreign_key "apps", "users"
+  add_foreign_key "cross_apps", "apps"
+  add_foreign_key "cross_apps", "courses"
   add_foreign_key "lessons", "periods"
   add_foreign_key "periods", "courses"
   add_foreign_key "profiles", "users"

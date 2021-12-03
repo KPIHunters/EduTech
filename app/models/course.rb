@@ -4,8 +4,9 @@ class Course < ApplicationRecord
 
   # Relations
   has_many :periods
-  # has_many :lessons, through: :periods
-  # has_and_belongs_to_many :users
+  has_many :lessons, through: :periods
+  has_many :cross_apps
+  has_many :apps, through: :cross_apps
 
   # Validations
   validates :name, length: { minimum: 3, maximum: 70 }, presence: true

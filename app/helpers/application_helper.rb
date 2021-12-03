@@ -10,8 +10,8 @@ module ApplicationHelper
 
   # Must return it app name based on user locale (default is pt-BR)
   def app_name
-    #'Libertaria.Tech'
-    'Edu KPI Hunters'
+    # TODO add IF to name the app or save it alias in the database
+    'Cidadania Tech'
   end
 
   # Must return ittem app slogan phrase based on user locale (default is pt-BR)

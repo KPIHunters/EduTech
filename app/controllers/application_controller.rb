@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Requirements before processing the request
   protect_from_forgery with: :exception
+  before_action :setup_app
   before_action :setup_user, unless: :login_not_required
   before_action :simple_permission_checker
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -44,6 +45,12 @@ class ApplicationController < ActionController::Base
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(_resource_or_scope)
     new_user_session_path
+  end
+
+  def setup_app
+    request_domain = request.domain
+    request_domain = "#{request_domain}:#{request.port}" if request_domain == 'localhost'
+    @app = App.where(domain: request_domain).take
   end
 
   def set_sidebar

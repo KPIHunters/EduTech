@@ -1,0 +1,27 @@
+h1 Listing oauth_configs
+
+table
+  thead
+    tr
+      th Provider
+      th Provider app
+      th Provider app secret
+      th Scope
+      th
+      th
+      th
+
+  tbody
+    - @oauth_configs.each do |oauth_config|
+      tr
+        td = oauth_config.provider
+        td = oauth_config.provider_app_id
+        td = oauth_config.provider_app_secret
+        td = oauth_config.scope
+        td = link_to 'Show', oauth_config
+        td = link_to 'Edit', edit_oauth_config_path(oauth_config)
+        td = link_to 'Destroy', oauth_config, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New OAuth config', new_oauth_config_path

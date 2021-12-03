@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Provider:
+  = @oauth_config.provider
+p
+  strong Provider app:
+  = @oauth_config.provider_app_id
+p
+  strong Provider app secret:
+  = @oauth_config.provider_app_secret
+p
+  strong Scope:
+  = @oauth_config.scope
+
+=> link_to 'Edit', edit_oauth_config_path(@oauth_config)
+'|
+=< link_to 'Back', oauth_configs_path

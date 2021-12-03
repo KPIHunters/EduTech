@@ -1,0 +1,2 @@
+class OAuthConfig < ApplicationRecord
+end

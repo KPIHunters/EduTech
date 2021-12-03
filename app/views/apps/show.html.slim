@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @app.name
+p
+  strong Domain:
+  = @app.domain
+p
+  strong Registrable:
+  = @app.registrable
+p
+  strong Is active:
+  = @app.is_active
+p
+  strong User:
+  = @app.user
+
+=> link_to 'Edit', edit_app_path(@app)
+'|
+=< link_to 'Back', apps_path
