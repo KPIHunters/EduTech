@@ -30,6 +30,7 @@ pt-br:
       create: Registrar
       delete: Excluir
       recent: Vídeos Recentes
+      intro: Introdução da Plataforma e do Curso
     social:
       connect:
         twitter: Conecte-se via Twitter
@@ -37,6 +38,10 @@ pt-br:
         linkedin: Conecte-se via LinkedIn
     recent_videos:
       name: Aulas Recentes
+    showroom:
+      name: Vitrine de Cursos
+    intro_course:
+      name: Seja bem-vindo(a)
     dashboard:
       name: Desempenho
       title: Uso Global do Sistema

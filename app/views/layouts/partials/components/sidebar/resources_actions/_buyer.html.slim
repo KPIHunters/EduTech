@@ -10,6 +10,12 @@ ul.nav
     /     i.fal.fa-tachometer-alt-fastest
     /     p =t('actions.dashboard.name')
 
+    -unless admin_course? || @periods.nil?
+      li class=(('active ' if current_page?(showroom_path) || current_page_includes?('showroom')))
+        a href="#{showroom_path}"
+          i.fal.fa-history
+          p =t('actions.showroom.name')
+
     li class=(('active ' if current_page?(recent_videos_path) || current_page?(root_path) || current_page_includes?('recent')))
       a href="#{recent_videos_path}"
         i.fal.fa-history
@@ -21,31 +27,37 @@ ul.nav
     /     i.fas.fa-book-reader
     /     p =t('actions.courses.name')
 
-    -@periods.order('sort_position asc').each do |period|
-      -expand_nav = sidebar_nav_open(period)
-      li class=(('active' if expand_nav))
-        a data-toggle="collapse" href="#coursesActions#{period.id}" aria-expanded=(('true ' if expand_nav))
-          / i.fas.fa-book-reader
-          i class="#{period.icon}"
-          p
-            =period.name
-            b.caret
-
-        / # TODO do it via ajax if it become slow
-        div id="coursesActions#{period.id}" class="collapse" aria-expanded=(('true ' if expand_nav)) class=((expand_nav ? 'collapse in' : 'collapse'))
-          ul.nav
-            -period.lessons.order('sort_position asc').each do |lesson|
-              li class=(('active' if params[:controller] == 'lessons' and !@lesson.nil? and @lesson.id == lesson.id))
-                -if @current_user.profile.nil? || !@current_user.profile.validated_docs
-                  a href="#" onclick="missingProfileData()"
-                    i class="#{lesson.icon}"
-                    =lesson.name
-                -else
-                  -if lesson.video_id.nil?
-                    a href="#" onclick="alert('Esta aula ainda não está disponível, por favor escolha outra conteúdo')"
+    -unless @periods.nil?
+      li class=(('active ' if current_page?(intro_course_path)))
+        a href="#{intro_course_path}"
+          i.fal.fa-door-open
+          p = t('actions.intro_course.name')
+      
+      -@periods.order('sort_position asc').each do |period|
+        -expand_nav = sidebar_nav_open(period)
+        li class=(('active' if expand_nav))
+          a data-toggle="collapse" href="#coursesActions#{period.id}" aria-expanded=(('true ' if expand_nav))
+            / i.fas.fa-book-reader
+            i class="#{period.icon}"
+            p
+              =period.name
+              b.caret
+  
+          / # TODO do it via ajax if it become slow
+          div id="coursesActions#{period.id}" class="collapse" aria-expanded=(('true ' if expand_nav)) class=((expand_nav ? 'collapse in' : 'collapse'))
+            ul.nav
+              -period.lessons.order('sort_position asc').each do |lesson|
+                li class=(('active' if params[:controller] == 'lessons' and !@lesson.nil? and @lesson.id == lesson.id))
+                  -if @current_user.profile.nil? || !@current_user.profile.validated_docs
+                    a href="#" onclick="missingProfileData()"
                       i class="#{lesson.icon}"
                       =lesson.name
                   -else
-                    a href="#{course_period_lesson_path(@course.id, period.id, lesson.id)}"
-                      i class="#{lesson.icon}"
-                      =lesson.name
+                    -if lesson.video_id.nil?
+                      a href="#" onclick="alert('Esta aula ainda não está disponível, por favor escolha outra conteúdo')"
+                        i class="#{lesson.icon}"
+                        =lesson.name
+                    -else
+                      a href="#{course_period_lesson_path(@course.id, period.id, lesson.id)}"
+                        i class="#{lesson.icon}"
+                        =lesson.name

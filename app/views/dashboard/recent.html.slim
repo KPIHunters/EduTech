@@ -1,9 +1,9 @@
 #youtube_video
 
 javascript:
-  const channelID = "#{{Rails.env.production? ? 'UCfsI-F8KtcNFpmxg7zMid-w' : 'UClTKqDyINIM7dDlF8U5d1TA'}}";
-  const reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
-  
+  channelID = "#{{Rails.env.production? ? 'UCfsI-F8KtcNFpmxg7zMid-w' : 'UClTKqDyINIM7dDlF8U5d1TA'}}";
+  reqURL = "https://www.youtube.com/feeds/videos.xml?channel_id=";
+
   Swal.fire({
       title: 'Carregando Vídeos Recentes',
       html: '',

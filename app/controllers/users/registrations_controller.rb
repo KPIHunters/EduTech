@@ -34,7 +34,7 @@ module Users
     # def destroy
     #   super
     # end
-  
+
     # GET /resource/cancel
     # Forces the session data which is usually expired after sign
     # in to be expired now. This is useful if the user wants to
@@ -45,7 +45,7 @@ module Users
     # end
 
     protected
-    
+
     # Setup Cookies to show up the email pending page
     def setup_pending_mail
       # TODO: refactor if using parallelism on server REMOVE/REFACTOR IT
@@ -73,6 +73,7 @@ module Users
     # end
 
     private
+
     def setup_dependencies
       return redirect_to '/' unless @app&.registrable?
     end

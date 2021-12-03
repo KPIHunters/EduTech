@@ -3,6 +3,7 @@ class CreateApps < ActiveRecord::Migration[6.0]
     create_table :apps do |t|
       t.string :name, null: false
       t.string :domain, null: false
+      t.string :intro_video, null: true
       t.boolean :registrable, default: false
       t.boolean :is_active, default: true
       t.datetime :deleted_at, null: true

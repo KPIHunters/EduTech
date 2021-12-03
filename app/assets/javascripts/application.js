@@ -43,6 +43,7 @@
 // Custom System JS
 //= require helpers/popups
 //= require helpers/localize
+//= require helpers/video
 //= require views/dashboard
 
 var colors = [
@@ -143,7 +144,7 @@ function setup() {
             }
         } catch (e) {
             // declarações para manipular quaisquer exceções
-            console.log(e); // passa o objeto de exceção para o manipulador de erro
+            console.log(`Error: #{e}`); // passa o objeto de exceção para o manipulador de erro
             document.location.reload(true);
         }
     }
@@ -158,6 +159,8 @@ function setup() {
 
 }
 
+let channelID = undefined;
+let reqURL = undefined;
 
 $(document).ready(setup);
 $(document).on('page:load', setup);

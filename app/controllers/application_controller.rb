@@ -54,8 +54,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_sidebar
-    # TODO: refactor for HotMarket model in future
-    unless @current_user.nil? || NENV['ONLY_ADMIN_COURSE'] == '0'
+    if admin_course?
       @course = Course.first
       @periods = @course.periods
     end
@@ -77,5 +76,9 @@ class ApplicationController < ActionController::Base
     end
 
     redirect_to root_path, warning: 'Você não possui permissão para acessar esta página' if forbidden
+  end
+
+  def admin_course?
+    NENV['ONLY_ADMIN_COURSE'] == '0'
   end
 end

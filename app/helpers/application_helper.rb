@@ -122,4 +122,8 @@ module ApplicationHelper
   def error_msg(obj)
     "O salvamento foi impedido por #{pluralize(obj.errors.count, 'erro')}:"
   end
+
+  def admin_course?
+    NENV['ONLY_ADMIN_COURSE'] == '0'
+  end
 end

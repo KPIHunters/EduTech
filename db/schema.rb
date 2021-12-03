@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_111326) do
   create_table "apps", force: :cascade do |t|
     t.string "name", null: false
     t.string "domain", null: false
+    t.string "intro_video"
     t.boolean "registrable", default: false
     t.boolean "is_active", default: true
     t.datetime "deleted_at"
@@ -69,9 +70,10 @@ ActiveRecord::Schema.define(version: 2021_12_03_111326) do
   end
 
   create_table "cross_apps", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.bigint "app_id", null: false
     t.bigint "course_id", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["app_id"], name: "index_cross_apps_on_app_id"
@@ -110,10 +112,11 @@ ActiveRecord::Schema.define(version: 2021_12_03_111326) do
   end
 
   create_table "oauth_configs", force: :cascade do |t|
-    t.string "provider"
-    t.string "provider_app_id"
-    t.string "provider_app_secret"
+    t.string "provider", null: false
+    t.string "provider_app_id", null: false
+    t.string "provider_app_secret", null: false
     t.string "scope"
+    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

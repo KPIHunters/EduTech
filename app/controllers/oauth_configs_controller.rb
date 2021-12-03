@@ -1,5 +1,5 @@
 class OAuthConfigsController < ApplicationController
-  before_action :set_oauth_config, only: %i[ show edit update destroy ]
+  before_action :set_oauth_config, only: %i[show edit update destroy]
 
   # GET /oauth_configs or /oauth_configs.json
   def index
@@ -7,8 +7,7 @@ class OAuthConfigsController < ApplicationController
   end
 
   # GET /oauth_configs/1 or /oauth_configs/1.json
-  def show
-  end
+  def show; end
 
   # GET /oauth_configs/new
   def new
@@ -16,8 +15,7 @@ class OAuthConfigsController < ApplicationController
   end
 
   # GET /oauth_configs/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /oauth_configs or /oauth_configs.json
   def create
