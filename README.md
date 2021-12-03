@@ -5,7 +5,18 @@ Teach technology with open source platform & public content to bring tech knowle
 
 1. npm install -g n
 2. sudo n stable
-3. nvm
+3. curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+4. Add to ~/.zshrc & ~/.bash_profile :
+
+export NVM_HOME=/Users/your-user/.nvm
+export PATH=${PATH}:${NVM_HOME}
+source ${NVM_HOME}/nvm.sh
+
+6. nvm install 14.18.1
+7. nvm use 14.18.1
+8. npm i -g yarn
+9. yarn install --check-files
+10. IF "Please run `yarn install --check-files` to update." -> remove node_module & run: yarn install --check-files 
 
 # SSL
 Localhost HTTPS para testes como o do facebook: https://rossta.net/blog/local-ssl-for-rails-5.html#resolve-a-domain-name-to-localhost
