@@ -28,6 +28,7 @@
  *= require creative-tim-pro/light_dashboard/bootstrap.min
  *= require creative-tim-pro/light_dashboard/light-bootstrap-dashboard
  *= require sweetalert2.min
+ *= require bootstrap-social
  */
 
 // Add-on
@@ -197,4 +198,12 @@ table.dataTable thead .sorting:after {
   background-color: #005a5a !important;
   color: #FFFFFF;
   border: 1px solid #005a5a;
+}
+
+.btn {
+  margin-bottom: 10px;
+}
+
+.sidebar .sidebar-wrapper {
+  width: 280px;
 }

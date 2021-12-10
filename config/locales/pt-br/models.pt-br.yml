@@ -46,7 +46,7 @@ pt-br:
         twitter_link: Seu perfil no Twitter
         linkedin_link: Seu perfil no LinkedIn
         validated_docs: Documentos Validados pela Equipe KPI Hunters
-        bank_code: Código do Banco
+        bank_code: Código do Banco (código bancário do BACEN)
         bank_agency: Agência Bancária (com dígito verificador)
         bank_account: Conta Bancária (com dígito verificador)
         created_at: Criada em

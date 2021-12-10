@@ -73,7 +73,8 @@ if it_course.periods.empty?
     { name: 'Lógica de Código', icon: 'fal fa-project-diagram' },
     { name: 'Orientação a Objeto', icon: 'fal fa-users-class' },
     { name: 'Banco de Dados', icon: 'fal fa-database' },
-    { name: 'Frameworks', icon: 'far fa-campfire' }
+    { name: 'Frameworks', icon: 'far fa-campfire' },
+    { name: 'Inteligência Artificial', icon: 'fal fa-head-side-brain' }
   ]
   periods.each_with_index do |period, i|
     period[:sort_position] = i
@@ -95,6 +96,7 @@ if it_course.periods.empty?
     ],
     # Environment Preparation
     [
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
       { name: 'Uso do computador', icon: 'fal fa-phone-laptop', description: 'Como configurar e utilizar o computador. Diferença entre Sistemas Operacionais, Sistema de Arquivos, HD (ROM) vs Memória (RAM), pastas, arquivos e aplicativos).', video_id: 'BPbCLtBl_g4' },
       { name: 'Linux no Windows', icon: 'fal fa-laptop-code', description: 'Como configurar e utilizar o linux no windows e o Gitbash e mostrar a diferença entre GitBash, WSL e Prompt.', video_id: 'BPbCLtBl_g4' },
       { name: 'Operador avançado', icon: 'fal fa-terminal', description: 'UI vs Terminal: comandos básicos e o reflexo do comando na UI e vice-versa e lista de comandos a serem usados.' },
@@ -105,6 +107,7 @@ if it_course.periods.empty?
     ],
     # UI
     [
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
       { name: 'Todas UI em 1', icon: 'fal fa-object-group', description: 'Todas as formas de criar telas em apenas 1 vídeo (Android, iOS, Web & Desktop)', video_id: 'BPbCLtBl_g4' },
       { name: 'HTML / XML', icon: 'fal fa-file-code', description: 'Criação de telas em HTML (web/híbrido) ou Android Nativo (XML). Tudo é sempre a mesma coisa!', video_id: 'BPbCLtBl_g4' },
       { name: 'CSS / XML', icon: 'fab fa-css3', description: 'Estilização de telas em CSS (web/híbrido) ou Android Nativo (XML). Tudo é sempre a mesma coisa!', video_id: 'BPbCLtBl_g4' },
@@ -115,6 +118,7 @@ if it_course.periods.empty?
     ],
     # Programming Logic
     [
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
       { name: 'Pensamento Estruturado (UML)', icon: 'fal fa-project-diagram', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: 'BPbCLtBl_g4' },
       { name: 'Variáveis vs Constantes', icon: 'fad fa-angle-double-up', description: 'Funcionamento e seus Tipos. Tudo na TI é uma função, inclusive a criação e o preenchimento de Variáveis e Constantes. Estes dois tipos de armazenamento de informação são a menor abstração.', video_id: 'BPbCLtBl_g4' },
       { name: 'Matemática Computacional', icon: 'fal fa-calculator-alt', description: 'Tudo em TI é uma função. Neste vídeo você verá que tudo sempre é função e como funciona a matemática computacional.', video_id: 'BPbCLtBl_g4' },
@@ -126,6 +130,7 @@ if it_course.periods.empty?
     ],
     # Object Oriented
     [
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
       { name: 'Classes e Métodos', icon: 'fal fa-users-class', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: 'BPbCLtBl_g4' },
       { name: 'Objetos vs Dicionário', icon: 'fal fa-object-ungroup', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: 'BPbCLtBl_g4' },
       { name: 'Herança e Polimorfismo', icon: 'fal fa-sitemap', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: 'BPbCLtBl_g4' },
@@ -134,6 +139,7 @@ if it_course.periods.empty?
     ],
     # Database
     [
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
       { name: 'Conceito de BD', icon: 'fal fa-server', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
       { name: 'Conceito de serviços', icon: 'fal fa-concierge-bell', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
       { name: 'MER', icon: 'fal fa-project-diagram', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
@@ -144,12 +150,24 @@ if it_course.periods.empty?
     ],
     # Frameworks
     [
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
       { name: 'Linguagens de Programação', icon: 'fal fa-language', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
       { name: 'Gestão de Versão (CBL)', icon: 'fal fa-code-merge', description: 'Aprenda a versionar o interpretador/compilador da linguagem de programação (brew, apt...)', video_id: 'BPbCLtBl_g4' },
       { name: 'Frameworks', icon: 'far fa-campfire', description: 'Aprenda o que é e como utilizar frameworks (códigos e estruturas prontas que agilizam o trabalho)', video_id: 'BPbCLtBl_g4' },
       { name: 'Gestão de Dependências (CBL)', icon: 'fal fa-sitemap', description: 'Aprenda a versionar as dependências de frameworks do projeto', video_id: 'BPbCLtBl_g4' },
       { name: 'Arquiteturas (MVC)', icon: 'fal fa-layer-group', description: 'Aprenda a principal arquitetura da grande maioria dos frameworks', video_id: 'BPbCLtBl_g4' },
       { name: 'Desafio', icon: 'fal fa-volcano', description: 'Desafio para verificar se você conseguiu entender como funcionam os frameworks e se consegue aplicar' }
+    ],
+    # Data Science
+    [
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
+      { name: 'Entendendo o Negócio', icon: 'fas fa-briefcase', description: 'Entendendo o negócio. Entendendo as regras e o funcionamento do escopo do trabalho humano', video_id: 'BPbCLtBl_g4' },
+      { name: 'Entendendo os Dados', icon: 'fad fa-table', description: 'Aprenda a versionar o interpretador/compilador da linguagem de programação (brew, apt...)', video_id: 'BPbCLtBl_g4' },
+      { name: 'Visualização de Dados', icon: 'fad fa-chart-pie', description: 'Aprenda a visualizar os dados e como interpretar os gráficos', video_id: 'BPbCLtBl_g4' },
+      { name: 'Modelagem', icon: 'fal fa-sitemap', description: 'Aprenda a criar modelos de Inteligência Artificial com diversos algoritmos', video_id: 'BPbCLtBl_g4' },
+      { name: 'Avaliação', icon: 'fab fa-searchengin', description: 'Aprenda a avaliar a qualidade do modelo e a sua efetividade em casos reais', video_id: 'BPbCLtBl_g4' },
+      { name: 'DataApp', icon: 'fal fa-layer-group', description: 'Criando um app que permite um humano interagir com o modelo de IA criado via interface gráfica', video_id: 'BPbCLtBl_g4' },
+      { name: 'Desafio', icon: 'fal fa-volcano', description: 'Desafio para verificar se você conseguiu entender como funciona os passos anteriores conhecidos como CRISPDM' }
     ]
   ]
   it_course.periods.order('id asc').each_with_index do |period, i|

@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  # Dependencies
+  include ApplicationHelper
+
   # Requirements before processing the request
   protect_from_forgery with: :exception
   before_action :setup_app
@@ -54,7 +57,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_sidebar
-    if admin_course?
+    if admin_course? and not devise_controller?
       @course = Course.first
       @periods = @course.periods
     end
@@ -78,7 +81,4 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, warning: 'Você não possui permissão para acessar esta página' if forbidden
   end
 
-  def admin_course?
-    NENV['ONLY_ADMIN_COURSE'] == '0'
-  end
 end

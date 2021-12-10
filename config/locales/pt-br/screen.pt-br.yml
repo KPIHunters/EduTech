@@ -2,6 +2,10 @@
 # pt-br translations for Screens
 pt-br:
   screen:
+    oauth:
+      provider:
+        github: Associar o GitHub à sua conta
+        linkedin: Associar o LinkedIn à sua conta
     select: Selecione uma opção
     current_locale: Idioma Atual
     researcher_relation_subtitle: A lista abaixo permite apenas consulta simples por Pesquisadores

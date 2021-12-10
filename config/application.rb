@@ -18,7 +18,7 @@ require 'sprockets/railtie'
 require 'dotenv'
 
 if Rails.env.development? || Rails.env.test?
-  NENV = Dotenv.load('.env')
+  Dotenv.load('.env').empty? ? NENV = Dotenv.load('.env.dev') : NENV = Dotenv.load('.env') 
 elsif Rails.env.production?
   NENV = ENV
 end

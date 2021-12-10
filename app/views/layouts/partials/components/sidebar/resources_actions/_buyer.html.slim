@@ -13,7 +13,7 @@ ul.nav
     -unless admin_course? || @periods.nil?
       li class=(('active ' if current_page?(showroom_path) || current_page_includes?('showroom')))
         a href="#{showroom_path}"
-          i.fal.fa-history
+          i class="fad fa-books"
           p =t('actions.showroom.name')
 
     li class=(('active ' if current_page?(recent_videos_path) || current_page?(root_path) || current_page_includes?('recent')))

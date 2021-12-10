@@ -124,6 +124,6 @@ module ApplicationHelper
   end
 
   def admin_course?
-    NENV['ONLY_ADMIN_COURSE'] == '0'
+    NENV['ONLY_ADMIN_COURSE'] == '1'
   end
 end
