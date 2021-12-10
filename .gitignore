@@ -39,6 +39,7 @@ coverage
 yarn-debug.log*
 .yarn-integrity
 .env
+.env.dev
 public/assets
 config/credentials.yml
 docker-compose.yml

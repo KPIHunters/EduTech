@@ -18,6 +18,12 @@ source ${NVM_HOME}/nvm.sh
 9. yarn install --check-files
 10. IF "Please run `yarn install --check-files` to update." -> remove node_module & run: yarn install --check-files 
 
+# GraphViz
+
+```shell
+   $ brew install graphviz
+```
+
 # SSL
 Localhost HTTPS para testes como o do facebook: https://rossta.net/blog/local-ssl-for-rails-5.html#resolve-a-domain-name-to-localhost
 --> O SSL QUE FUNCIONOU FOI O DO HEROKU: https://devcenter.heroku.com/articles/ssl-certificate-self

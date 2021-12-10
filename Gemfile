@@ -55,18 +55,17 @@ gem 'colorize', '~> 0.8.1'
 #  LOGIN MANAGEMENT       #
 ###########################
 # Session manager
-gem 'devise', '~> 4.7.3'
+gem 'devise', '~> 4.8.0'
+gem 'devise_invitable', '~> 2.0', '>= 2.0.5'
 # Role Profile Devise user's roles manager
 # gem 'the_role', '~> 3.9.0'
 # Animated Progress link/screen transaction
 gem 'nprogress-rails', '~> 0.2.0.2'
 # OAuth
 # gem 'koala', '~> 2.2.0'
-gem 'omniauth', '~> 1.9.1'
-gem 'omniauth-oauth2', '~> 1.5.0'
-gem 'omniauth-facebook', '~> 8.0.0'
-gem 'omniauth-youtube', '~> 2.1'
-gem 'omniauth-twitter', '~> 1.4'
+gem 'omniauth', '~> 2.0', '>= 2.0.4'
+gem 'omniauth-github', '~> 2.0'
+gem 'omniauth-linkedin-oauth2', '~> 1.0'
 
 # cron job manager
 gem 'whenever'
