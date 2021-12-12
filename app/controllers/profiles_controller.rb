@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :form_redir, only: [:index, :show]
+  before_action :prevent_mult_profile, only: [:new, :create]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
@@ -75,43 +76,48 @@ class ProfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_profile
-      if @current_user.profile.id != params[:id].to_i
-        return form_redir
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_profile
+    if @current_user.profile.id != params[:id].to_i
+      return form_redir
+    end
+
+    @profile = Profile.find(params[:id])
+  end
+
+  # Redirect to profile form
+  def form_redir
+    unless @current_user.admin?
+      if @current_user.profile.nil?
+        redirect_to new_profile_path
+      else
+        redirect_to edit_profile_path(@current_user.profile)
       end
-
-      @profile = Profile.find(params[:id])
     end
+  end
 
-    # Redirect to profile form
-    def form_redir
-      unless @current_user.admin?
-        if @current_user.profile.nil?
-          redirect_to new_profile_path
-        else
-          redirect_to edit_profile_path(@current_user.profile)
-        end
-      end
-    end
+  # Only allow a list of trusted parameters through.
+  def profile_params
+    in_params = params.require(:profile).permit(:phone, :state_ibge, :county_ibge, :full_address, :zip_code,
+                                    :company_fantasy_name, :company_legal_name, :website, :gov_id_pf, :gov_id_pj,
+                                    :facebook_link, :twitter_link, :linkedin_link, :bio, :description, :birthday,
+                                    :photo, :banner, :selfie, :legal_doc, :signature, :third_part_receive_equipments,
+                                    :bank_agency, :bank_account) #:bank_code,
 
-    # Only allow a list of trusted parameters through.
-    def profile_params
-      in_params = params.require(:profile).permit(:phone, :state_ibge, :county_ibge, :full_address, :zip_code,
-                                      :company_fantasy_name, :company_legal_name, :website, :gov_id_pf, :gov_id_pj,
-                                      :facebook_link, :twitter_link, :linkedin_link, :bio, :description, :birthday,
-                                      :photo, :banner, :selfie, :legal_doc, :signature, :third_part_receive_equipments,
-                                      :bank_agency, :bank_account) #:bank_code,
+    in_params[:birthday] = Date.parse(in_params[:birthday]) unless in_params[:birthday].nil? || in_params[:birthday].length == 0
+    cpf = CPF.new(params[:profile][:gov_id_pf])
+    in_params[:gov_id_pf] = cpf.stripped
 
-      in_params[:birthday] = Date.parse(in_params[:birthday]) unless in_params[:birthday].nil? || in_params[:birthday].length == 0
-      cpf = CPF.new(params[:profile][:gov_id_pf])
-      in_params[:gov_id_pf] = cpf.stripped
+    in_params[:phone] = in_params[:phone].gsub(/[^0-9A-Za-z]/, '')
+    in_params[:state_ibge] = params[:profile][:state_ibge].split('-')[1].strip() if params[:profile][:state_ibge].index '-'
+    in_params[:county_ibge] = params[:profile][:county_ibge].split('-')[1].strip() if params[:profile][:county_ibge].index '-'
+    in_params[:user_id] = @current_user.id
 
-      in_params[:phone] = in_params[:phone].gsub(/[^0-9A-Za-z]/, '')
-      in_params[:state_ibge] = params[:profile][:state_ibge].split('-')[1].strip() if params[:profile][:state_ibge].index '-'
-      in_params[:county_ibge] = params[:profile][:county_ibge].split('-')[1].strip() if params[:profile][:county_ibge].index '-'
-      in_params[:user_id] = @current_user.id
-
-      in_params
-    end
+    in_params
+  end
+  
+  def prevent_mult_profile
+    redirect_to edit_profile_path(@current_user.profile) unless @current_user.profile.nil?
+  end
 end
