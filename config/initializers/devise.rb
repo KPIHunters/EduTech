@@ -280,8 +280,13 @@ Devise.setup do |config|
   # up on your models and hooks.
   config.omniauth :github, NENV['GITHUB_CLIENT_KEY'], 
                   NENV['GITHUB_CLIENT_SECRET'], scope: 'repo,repo:status,user,read:user	'
+  # TODO ask LinkedIn permission
+  # config.omniauth :linkedin, NENV['LINKEDIN_CLIENT_KEY'],
+  #                 NENV['LINKEDIN_CLIENT_SECRET'], scope: 'r_emailaddress,r_fullprofile'
+  # config.omniauth :linkedin, NENV['LINKEDIN_CLIENT_KEY'],
+  #                 NENV['LINKEDIN_CLIENT_SECRET'], scope: 'r_emailaddress,r_liteprofile,r_basicprofile'
   config.omniauth :linkedin, NENV['LINKEDIN_CLIENT_KEY'],
-                  NENV['LINKEDIN_CLIENT_SECRET'], scope: 'r_emailaddress,r_fullprofile'
+                  NENV['LINKEDIN_CLIENT_SECRET'], scope: 'r_emailaddress,r_liteprofile'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

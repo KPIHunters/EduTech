@@ -11,16 +11,32 @@ class SocialSession < ApplicationRecord
 
   # Create Social Session
   def self.create_from_oauth(provider_data, user)
+    # Default correct attrs
     _provider_id = nil
     _uid = provider_data[:uid]
-    _username = provider_data[:info][:nickname]
     _email = provider_data[:info][:email]
     _access_token = provider_data[:credentials][:token]
     _extra = provider_data[:extra][:raw_info].to_json
-    _bio = provider_data[:extra][:raw_info][:bio]
+    
+    # Possible change attrs
+    _provider_id = nil
+    _picture_url = nil
+    _profile_url = nil
+    _username = nil
+    _bio = nil
     
     if provider_data[:provider] == 'github'
       _provider_id = GITHUB_PROVIDER_ID
+      _picture_url = provider_data[:info][:image]
+      _profile_url = provider_data[:info][:urls][:GitHub]
+      _username = provider_data[:info][:nickname]
+      _bio = provider_data[:extra][:raw_info][:bio]
+    elsif provider_data[:provider] == 'linkedin'
+      _provider_id = LINKEDIN_PROVIDER_ID
+      _picture_url = provider_data[:info][:picture_url]
+      _profile_url = nil
+      _username = nil
+      _bio = nil
     end
 
     social_session_params = {
@@ -31,6 +47,8 @@ class SocialSession < ApplicationRecord
       provider_id: _provider_id,
       extra: _extra,
       bio: _bio,
+      picture_url: _picture_url,
+      profile_url: _profile_url,
       user_id: user.id
     }
 

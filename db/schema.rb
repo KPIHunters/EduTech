@@ -186,6 +186,8 @@ ActiveRecord::Schema.define(version: 2021_12_10_081838) do
     t.string "email"
     t.string "access_token", null: false
     t.integer "provider_id", null: false
+    t.string "picture_url"
+    t.string "profile_url"
     t.string "bio"
     t.text "extra"
     t.datetime "deleted_at"

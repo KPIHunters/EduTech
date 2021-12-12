@@ -6,6 +6,8 @@ class CreateSocialSessions < ActiveRecord::Migration[6.0]
       t.string :email, null: true
       t.string :access_token, null: false
       t.integer :provider_id, null: false
+      t.string :picture_url, null: true
+      t.string :profile_url, null: true
       t.string :bio, null: true
       t.text :extra, null: true
       

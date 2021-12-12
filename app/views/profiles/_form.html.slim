@@ -32,7 +32,7 @@
                   = t('screen.oauth.provider.github')
             .col-md-6.col-xs-6.col-sm-6
               .col-md-10.col-md-offset-1.col-xs-12.col-sm-12
-                a.btn.btn-block.btn-social.btn-linkedin
+                = link_to user_linkedin_omniauth_authorize_path, method: :post, class: 'btn btn-block btn-social btn-linkedin' do
                   i class="fab fa-linkedin"
                   = t('screen.oauth.provider.linkedin')
 
