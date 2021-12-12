@@ -30,6 +30,7 @@ class SocialSession < ApplicationRecord
       access_token: _access_token,
       provider_id: _provider_id,
       extra: _extra,
+      bio: _bio,
       user_id: user.id
     }
 
