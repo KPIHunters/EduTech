@@ -1,0 +1,4 @@
+module OAuthProviders
+  GITHUB_PROVIDER_ID = 1
+  LINKEDIN_PROVIDER_ID = 2
+end

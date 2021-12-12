@@ -10,6 +10,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.integer :role_id, null: false, default: 3 # TheRole gem field
       t.boolean :admin, null: false, default: false
       t.datetime :deleted_at, null: true
+      t.string :providers, null: false, default: '[]'
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

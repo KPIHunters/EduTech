@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_111326) do
+ActiveRecord::Schema.define(version: 2021_12_10_081838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -180,6 +180,21 @@ ActiveRecord::Schema.define(version: 2021_12_03_111326) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "social_sessions", force: :cascade do |t|
+    t.string "uid", null: false
+    t.string "username"
+    t.string "email"
+    t.string "access_token", null: false
+    t.integer "provider_id", null: false
+    t.string "bio"
+    t.text "extra"
+    t.datetime "deleted_at"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_social_sessions_on_user_id"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.integer "last_lesson"
     t.datetime "deleted_at"
@@ -198,6 +213,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_111326) do
     t.integer "role_id", default: 3, null: false
     t.boolean "admin", default: false, null: false
     t.datetime "deleted_at"
+    t.string "providers", default: "[]", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -238,6 +254,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_111326) do
   add_foreign_key "lessons", "periods"
   add_foreign_key "periods", "courses"
   add_foreign_key "profiles", "users"
+  add_foreign_key "social_sessions", "users"
   add_foreign_key "subscriptions", "courses"
   add_foreign_key "subscriptions", "users"
 end

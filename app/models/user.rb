@@ -9,9 +9,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, :confirmable, :lockable,
+         :confirmable, :lockable,
          :two_factor_authenticatable, :two_factor_backupable,
          otp_secret_encryption_key: NENV['SECRET_KEY_BASE']
+
+  devise :omniauthable, omniauth_providers: [:github, :linkedin]
 
   # Relations
   has_one :profile, dependent: :destroy

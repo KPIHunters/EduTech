@@ -36,7 +36,7 @@ pt-br:
         gov_id_pf: CPF
         gov_id_pj: CNPJ
         birthday: Data Nascimento
-        phone: Telefone celular com DDD (whatsapp)
+        phone: WhatsApp com DDD
         state_ibge: Estado (UF)
         county_ibge: Município (os dois números iniciais devem ser iguais ao da UF)
         full_address: Endereço Completo com cidade, estado e número da casa

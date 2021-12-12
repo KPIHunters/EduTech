@@ -66,6 +66,7 @@ gem 'nprogress-rails', '~> 0.2.0.2'
 gem 'omniauth', '~> 2.0', '>= 2.0.4'
 gem 'omniauth-github', '~> 2.0'
 gem 'omniauth-linkedin-oauth2', '~> 1.0'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 # cron job manager
 gem 'whenever'
@@ -141,6 +142,9 @@ group :development, :test do
 
   # Run against the latest stable release
   gem 'rspec-rails', '~> 4.0.1'
+
+  # Rails Dev Helpers (production ready allowed only for admin user)
+  gem 'rails_db'
 end
 
 group :development do
@@ -152,9 +156,6 @@ group :development do
   # Rails Dev Helpers
   gem 'rails-erd' # Gem for diagrams model
 end
-
-# Rails Dev Helpers (production ready allowed only for admin user)
-gem 'rails_db'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

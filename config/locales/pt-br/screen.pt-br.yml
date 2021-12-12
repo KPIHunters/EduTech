@@ -6,6 +6,8 @@ pt-br:
       provider:
         github: Associar o GitHub à sua conta
         linkedin: Associar o LinkedIn à sua conta
+      signed: "%{provider} associado com sucesso"
+      not_signed: "%{provider} não foi possível associar"
     select: Selecione uma opção
     current_locale: Idioma Atual
     researcher_relation_subtitle: A lista abaixo permite apenas consulta simples por Pesquisadores

@@ -18,6 +18,11 @@ source ${NVM_HOME}/nvm.sh
 9. yarn install --check-files
 10. IF "Please run `yarn install --check-files` to update." -> remove node_module & run: yarn install --check-files 
 
+# Omniauth
+
+1. Production Callback: https://cidadaniatech.kpihunters.com/users/auth/github/callback
+2. Development Callback: http://localhost:8000/users/auth/github/callback
+
 # GraphViz
 
 ```shell

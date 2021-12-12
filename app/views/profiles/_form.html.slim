@@ -24,12 +24,10 @@
         .card-header
           h4.card-title Redes Profissionais
         .card-body
-          
-          
           .row
             .col-md-6.col-xs-6.col-sm-6
               .col-md-10.col-md-offset-1.col-xs-12.col-sm-12
-                a.btn.btn-block.btn-social.btn-github.pull-right
+                = link_to user_github_omniauth_authorize_path, method: :post, class: 'btn btn-block btn-social btn-github' do
                   i class="fab fa-github"
                   = t('screen.oauth.provider.github')
             .col-md-6.col-xs-6.col-sm-6

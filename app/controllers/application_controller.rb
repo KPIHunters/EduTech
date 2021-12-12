@@ -35,6 +35,7 @@ class ApplicationController < ActionController::Base
 
   # Call the Authenticate & set it @current_user up
   def setup_user
+    return if devise_controller?
     current_user.nil? ? authenticate_user! : @current_user = current_user
   end
 

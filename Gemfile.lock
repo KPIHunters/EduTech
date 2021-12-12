@@ -10,6 +10,28 @@ GEM
   specs:
     creative_tim (0.0.8)
       railties
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
+    ransack (2.4.2)
+      activerecord (>= 5.2.4)
+      activesupport (>= 5.2.4)
+      i18n
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+    terminal-table (3.0.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
+    unicode-display_width (1.7.0)
 
 GEM
   remote: https://rubygems.org/
@@ -184,18 +206,6 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (2.3.0)
-    kaminari (1.2.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.1)
-      kaminari-activerecord (= 1.2.1)
-      kaminari-core (= 1.2.1)
-    kaminari-actionview (1.2.1)
-      actionview
-      kaminari-core (= 1.2.1)
-    kaminari-activerecord (1.2.1)
-      activerecord
-      kaminari-core (= 1.2.1)
-    kaminari-core (1.2.1)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -237,6 +247,9 @@ GEM
     omniauth-oauth2 (1.7.2)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
+    omniauth-rails_csrf_protection (1.0.0)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     openssl (2.2.0)
     orm_adapter (0.5.0)
     paranoia (2.4.3)
@@ -293,10 +306,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rake (13.0.3)
-    ransack (2.4.2)
-      activerecord (>= 5.2.4)
-      activesupport (>= 5.2.4)
-      i18n
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -338,9 +347,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    simple_form (5.1.0)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
     simplecov (0.19.1)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -367,8 +373,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.8.2)
-    terminal-table (3.0.0)
-      unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -377,7 +381,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
-    unicode-display_width (1.7.0)
     unicode_utils (1.4.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -432,6 +435,7 @@ DEPENDENCIES
   omniauth (~> 2.0, >= 2.0.4)
   omniauth-github (~> 2.0)
   omniauth-linkedin-oauth2 (~> 1.0)
+  omniauth-rails_csrf_protection (~> 1.0)
   openssl (~> 2.2)
   paranoia (~> 2.2)
   pg (~> 1.1)
