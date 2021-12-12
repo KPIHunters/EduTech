@@ -122,7 +122,14 @@
           p.card-description
             =@current_user.username
         p.card-description.text-center
-          =@profile.bio
+          strong GitHub:
+          = " #{@current_user.github&.bio}"
+        p.card-description.text-center
+          strong LinkedIn:
+          = " #{@current_user.linkedin&.bio}"
+        p.card-description.text-center
+          strong Edu KPI:
+          =" #{@profile.bio}"
 
       .row
 

@@ -12,18 +12,23 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # Create social session based on GitHub received data
   def github
-    @social_session = SocialSession.create_from_oauth(request.env['omniauth.auth'], current_user)
-    if @social_session
-      redirect_to new_profile_path, notice: t('screen.oauth.signed', provider: 'GitHub')
-    else
-      redirect_to new_profile_path, notice: t('screen.oauth.not_signed', provider: 'GitHub')
-    end
+    setup_social_session('GitHub')
   end
 
   # Create social session based on LinkedIn received data
   def linkedin
+    setup_social_session('LinkedIn')
   end
 
+  def setup_social_session(provider)
+    @social_session = SocialSession.create_from_oauth(request.env['omniauth.auth'], current_user)
+    if @social_session
+      redirect_to new_profile_path, notice: t('screen.oauth.signed', provider: provider)
+    else
+      redirect_to new_profile_path, notice: t('screen.oauth.not_signed', provider: provider)
+    end
+  end
+  
   # More info at:
   # https://github.com/heartcombo/devise#omniauth
 

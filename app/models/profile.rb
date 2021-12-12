@@ -1,12 +1,14 @@
 class Profile < ApplicationRecord
   # Dependencies
   acts_as_paranoid
+  include SocialData
 
   # Relations Dependencies
   belongs_to :user, dependent: :destroy
 
   # Relations
   has_many :experiences
+  has_many :social_sessions, through: :user
 
   # Validations Callbacks
   # before_validation :check_editable, if: -> { validated_docs } TODO

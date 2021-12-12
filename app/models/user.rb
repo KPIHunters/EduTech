@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   # Dependencies
   acts_as_paranoid
+  include SocialData
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -19,6 +20,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :admin_courses, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
+  has_many :social_sessions
   has_many :subscribed_courses, through: :subscriptions, source: :course, dependent: :destroy
   has_many :administrated_courses, through: :admin_courses, source: :course, dependent: :destroy
 
