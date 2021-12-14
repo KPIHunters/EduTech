@@ -63,6 +63,19 @@ class ProfilesController < ApplicationController
     # end
   end
 
+  # GET /switch_active_account/1
+  def switch_active_account
+    @profile = Profile.find(params[:profile_id])
+    if !@current_user.admin?
+      redirect_to edit_profile_path(@profile), notice: t('screen.forbidden')
+    else
+      @profile.validated_docs = !@profile.validated_docs
+      @profile.save
+
+      redirect_to edit_profile_path(@profile)
+    end
+  end
+
   def delete_account
     unless @current_user.admin
       if @current_user.profile
@@ -79,7 +92,7 @@ class ProfilesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_profile
-    if @current_user.profile.id != params[:id].to_i
+    if @current_user.profile.id != params[:id].to_i && !@current_user.admin?
       return form_redir
     end
 

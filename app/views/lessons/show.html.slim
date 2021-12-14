@@ -4,17 +4,21 @@
   .col-md-3.col-sm-12.col-xl-6
     /Channel Subscribe
     script src="https://apis.google.com/js/platform.js"
-    div class="g-ytsubscribe" data-channelid="UCfsI-F8KtcNFpmxg7zMid-w" data-layout="full" data-count="default"
+    #youtube_channel style="max-height: 65px;"
+      div class="g-ytsubscribe" data-channelid="UCfsI-F8KtcNFpmxg7zMid-w" data-layout="full" data-count="default"
   .col-md-6.col-sm-12.col-xl-6
     /Like / Dislike buttons
     .col-md-3.col-sm-6.col-xl-6
-      button.btn.btn-link.btn-success.btn-icon#like onclick="authenticate().then(loadClient)"
+      button.btn.btn-link.btn-icon#like onclick="authenticate().then(loadClient)"
         i.fal.fa-thumbs-up
         = ' Gostei'
     .col-md-3.col-sm-6.col-xl-6
-      button.btn.btn-link.btn-success.btn-icon#dislike onclick="authenticate().then(loadClient)"
+      button.btn.btn-link.btn-icon#dislike onclick="authenticate().then(loadClient)"
         i.fal.fa-thumbs-down
         = ' Não gostei'
+    .col-md-5.col-md-offset-1.col-sm-12
+      .alert.alert-warning Materiais da aula logo abaixo do vídeo.        
+        
     / .col-md-3.col-sm-6.col-xl-6
     /   button onclick="execute()" execute
 /Video Render

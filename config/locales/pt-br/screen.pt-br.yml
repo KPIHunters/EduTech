@@ -2,6 +2,7 @@
 # pt-br translations for Screens
 pt-br:
   screen:
+    forbidden: Você não possui permissão para essa ação
     oauth:
       provider:
         github: Associar o GitHub à sua conta

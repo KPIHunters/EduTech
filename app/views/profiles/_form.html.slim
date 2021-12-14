@@ -1,4 +1,11 @@
--if !@current_user.profile.nil? && !@current_user.profile.validated_docs
+-@current_user.admin? ? current_profile_user = @profile.user : current_profile_user = @current_user 
+
+-if @current_user.admin?
+  .row
+    =link_to switch_active_account_path(@profile), class: 'btn btn-danger btn-fill' do
+      ="#{ @profile.validated_docs ? 'Desvalidar usuário' : 'Validar usuário' }"
+
+-if !current_profile_user.profile.nil? && !current_profile_user.profile.validated_docs
   .alert.alert-warning
     b Atenção.
     = ' Caso seus dados estejam completos e você ainda não possa ver às aulas é porque seus dados precisam ser validados pela equipe KPI Hunters'
@@ -43,7 +50,7 @@
             .col-md-6.pr-1
               .form-group
                 label =t('activerecord.attributes.user.full_name')
-                input class='form-control' disabled='disabled' value="#{@current_user.full_name}"
+                input class='form-control' disabled='disabled' value="#{current_profile_user.full_name}"
             .col-md-3.pr-1
               .form-group
                 =f.label :gov_id_pf
@@ -114,21 +121,21 @@
       .card-body
         .author
           a href="#"
-            -if @current_user.profile&.photo&.attached?
-              =image_tag @current_user.profile&.photo, class: 'avatar border-gray'
-            - elsif @current_user.social_photo
-              = image_tag @current_user.social_photo, class: 'avatar border-gray'
+            -if current_profile_user.profile&.photo&.attached?
+              =image_tag current_profile_user.profile&.photo, class: 'avatar border-gray'
+            - elsif current_profile_user.social_photo
+              = image_tag current_profile_user.social_photo, class: 'avatar border-gray'
             -else
               =image_tag 'dumont.gif', class: 'avatar border-gray'
-            h5.card-title =@current_user.short_name
+            h5.card-title =current_profile_user.short_name
           p.card-description
-            =@current_user.username
+            =current_profile_user.username
         p.card-description.text-center
           strong GitHub:
-          = " #{@current_user.github&.bio}"
+          = " #{current_profile_user.github&.bio}"
         p.card-description.text-center
           strong LinkedIn:
-          = " #{@current_user.linkedin&.bio}"
+          = " #{current_profile_user.linkedin&.bio}"
         p.card-description.text-center
           strong Edu KPI:
           =" #{@profile.bio}"
@@ -142,10 +149,10 @@
           /   i class="fab fa-facebook"
           / a href="#" class="btn btn-simple btn-link btn-icon" target="_blank"
           /   i class="fab fa-twitter"
-          -@current_user.github.nil? ? github_active='' : github_active='text-success'
+          -current_profile_user.github.nil? ? github_active='' : github_active='text-success'
           a href="#" class="btn btn-simple btn-link btn-icon #{github_active}" target="_blank"
             i class="fab fa-github"
-          -@current_user.linkedin.nil? ? linkedin_active='' : linkedin_active='text-success'
+          -current_profile_user.linkedin.nil? ? linkedin_active='' : linkedin_active='text-success'
           a href="#" class="btn btn-simple btn-link btn-icon #{linkedin_active}" target="_blank"
             i class="fab fa-linkedin-in"
         / hr

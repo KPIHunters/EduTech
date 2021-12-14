@@ -216,3 +216,13 @@ table.dataTable thead .sorting:after {
 .card-user .card-footer .button-container .btn {
   font-size: 25px;
 }
+
+#dislike.btn-link.btn-icon:hover {
+  border: 1px solid #900000FF !important;
+  border-radius: 5px !important;
+}
+
+#like.btn-link.btn-icon:hover {
+  border: 1px solid #1080F6FF !important;
+  border-radius: 5px !important;
+}

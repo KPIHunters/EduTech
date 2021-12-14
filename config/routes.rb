@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get '/policy' => 'terms#policy', as: :policy
   get 'showroom/index', as: :showroom
   get 'intro' => 'dashboard#intro', as: :intro_course
+  get '/switch_active_account/:profile_id' => 'profiles#switch_active_account', as: :switch_active_account
 
   # Persistence Actions
   resources :roles
