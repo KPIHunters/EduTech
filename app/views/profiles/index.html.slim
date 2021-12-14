@@ -39,29 +39,30 @@ h4 Listagem de perfil dos alunos
             a href="#{legal_doc_path}" class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
               i class="fal fa-id-card"
               =" CNH ou RG"
-
-            -if profile.selfie.attached?
-              -selfie_path =profile.selfie.service_url
-            -else
-              -selfie_path ='#'
-            a href="#{selfie_path}" class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
-              i class="fal fa-portrait"
-              =" Selfie com documento"
-
-            - if profile.signature.attached?
-              -signature_path =profile.signature.service_url
-            - else
-              -signature_path = '#'
-            a href="#{signature_path}"  class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
-              i class="fal fa-file-contract"
-              = " Assinatura"
-            - if profile.third_part_receive_equipments.attached?
-              - third_part_receive_equipments_path =profile.third_part_receive_equipments.service_url
-            - else
-              - third_part_receive_equipments_path = '#'
-            a href="#{third_part_receive_equipments_path}" class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
-              i class="fal fa-file-contract"
-              = " Retirada equipamentos por terceiro"
+            
+            /
+              -if profile.selfie.attached?
+                -selfie_path =profile.selfie.service_url
+              -else
+                -selfie_path ='#'
+              a href="#{selfie_path}" class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
+                i class="fal fa-portrait"
+                =" Selfie com documento"
+            /
+              - if profile.signature.attached?
+                -signature_path =profile.signature.service_url
+              - else
+                -signature_path = '#'
+              a href="#{signature_path}"  class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
+                i class="fal fa-file-contract"
+                = " Assinatura"
+              - if profile.third_part_receive_equipments.attached?
+                - third_part_receive_equipments_path =profile.third_part_receive_equipments.service_url
+              - else
+                - third_part_receive_equipments_path = '#'
+              a href="#{third_part_receive_equipments_path}" class="btn btn-simple btn-link btn-icon col-lg-12 col-md-12 col-sm-12" target="_blank"
+                i class="fal fa-file-contract"
+                = " Retirada equipamentos por terceiro"
 
 
 javascript:

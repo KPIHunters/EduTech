@@ -226,3 +226,9 @@ table.dataTable thead .sorting:after {
   border: 1px solid #1080F6FF !important;
   border-radius: 5px !important;
 }
+
+label.required:after{ 
+  content:"*";
+  font-size: 20px;
+  color: red;
+}
