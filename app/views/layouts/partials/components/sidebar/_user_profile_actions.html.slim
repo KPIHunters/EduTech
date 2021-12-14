@@ -1,6 +1,6 @@
 .user
   .photo
-    =image_tag 'dumont.gif'
+    =image_tag @current_user.social_photo || 'dumont.gif'
   .info
     a.collapsed data-toggle="collapse" href="#collapseExample"
       =@current_user.full_name

@@ -22,6 +22,7 @@ source ${NVM_HOME}/nvm.sh
 
 1. Production Callback: https://cidadaniatech.kpihunters.com/users/auth/github/callback
 2. Development Callback: http://localhost:8000/users/auth/github/callback
+3. LinkedIn increase scopes: https://business.linkedin.com/talent-solutions/ats-partners/partner-application
 
 # GraphViz
 

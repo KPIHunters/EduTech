@@ -13,8 +13,10 @@ h4 Listagem de perfil dos alunos
         .card-body
           .author
             a href="#"
-              -if profile.photo.attached?
-                =image_tag profile.photo, class: 'avatar border-gray'
+              -if @current_user.profile&.photo&.attached?
+                =image_tag @current_user.profile&.photo, class: 'avatar border-gray'
+              -elsif @current_user.social_photo
+                =image_tag @current_user.social_photo, class: 'avatar border-gray'
               -else
                 =image_tag 'dumont.gif', class: 'avatar border-gray'
               h5.card-title =profile.user.short_name

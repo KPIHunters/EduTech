@@ -24,11 +24,10 @@ if u_admin.nil?
                    password: Faker::Internet.password(max_length: 10), admin: true
   admin.skip_confirmation!
   admin.save
-
-  Profile.new phone: Faker::PhoneNumber.cell_phone, state_ibge: '53', county_ibge: '5300108', user_id: admin.id,
+  p1 = Profile.new phone: '11972540367', state_ibge: '53', county_ibge: '5300108', user_id: admin.id,
                full_address: Faker::Address.full_address, zip_code: Faker::Address.zip_code,
                company_fantasy_name: 'KPI Hunters', website: 'https://kpihunters.com',
-               gov_id_pf: CPF.generate, gov_id_pj: '32282065000163',
+               gov_id_pf: CPF.generate, gov_id_pj: '32282065000163', birthday: '03/07/1990',
                company_legal_name: 'KPI Hunters Marketing & Tecnologia Ltda',
                bio: 'Eu encontro a melhor opção tecnológica com o mínimo de esforço e custo para aplicá-las nos mais complexos cenários e obter as soluções mais simples e barata para atingir os resultados esperados de ganhos para o meu cliente e o cliente do meu cliente. Eu sou alguém que toma decisões baseado em dados (data driven). Além disso, sempre considero as duas possibilidades que existem (a otimista e a pessimista) analisando seus argumentos de forma que o risco seja sempre gerenciado com operações contrárias ao cenário projetado criando seguros. Nunca escolho lados, uno os pontos positivos de cada um dos dois e ajudo a manejar o lado negativo de ambos, pois a liderança não deve escolher lados, deve conseguir unir lados criando apenas um. Amo empreender e ajudar outras pessoas a conquistarem seus objetivos e mudarem suas vidas. Amo estar com minha família, curtir a natureza e viajar.'
 
@@ -36,12 +35,13 @@ if u_admin.nil?
                    password: Faker::Internet.password(max_length: 10), role_id: publisher_role.id
   user1.skip_confirmation!
   user1.save
+  p1.save
 
   user2 = User.new full_name: 'Ilton Aluno', email: 'ilton.buyer@gmail.com',
                    password: Faker::Internet.password(max_length: 10), role_id: buyer_role.id
   user2.skip_confirmation!
   user2.save
-  p2 = Profile.new phone: Faker::PhoneNumber.cell_phone, gov_id_pf: CPF.generate, user_id: user2.id,
+  p2 = Profile.new phone: '21972550567', gov_id_pf: CPF.generate, user_id: user2.id, birthday: '04/02/1990',
                    state_ibge: '53', county_ibge: '5300108', website: 'https://kpihunters.com',
                    full_address: Faker::Address.full_address, zip_code: Faker::Address.zip_code,
                    bio: 'engenheiro de software; engenheiro de dados; cientista de dados; empreendedor; pesquisador em saúde; engenharia biomédica; desenvolvedor full stack; agrotech; meio ambiente; cooperação internacional'

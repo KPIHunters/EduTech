@@ -14,6 +14,10 @@ module SocialData
       @linkedin
     end
   end
+  
+  def social_photo
+    linkedin&.picture_url || github&.picture_url
+  end
 
   def get_social_session(provider_id)
     self.social_sessions.where(provider_id: provider_id).take

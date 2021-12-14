@@ -52,6 +52,7 @@ class Profile < ApplicationRecord
   end
 
   private
+  
   def gov_id_validity
     if self.gov_id_pf.nil?
       self.errors.add :gov_id_pf, "#{I18n.t('flash.mandatory')}"
@@ -69,13 +70,6 @@ class Profile < ApplicationRecord
       end
     end
   end
-
-  # TODO
-  # def check_editable
-  #   if self.validated_docs
-  #     self.errors.add :validated_docs, "#{I18n.t('flash.checked_docs')}"
-  #   end
-  # end
 
   def ibge_code_validity
     cis = self.county_ibge.to_s
