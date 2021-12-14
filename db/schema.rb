@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 2021_12_10_081838) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "birthday"
+    t.date "birthday", null: false
     t.index ["gov_id_pf"], name: "index_profiles_on_gov_id_pf", unique: true
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
