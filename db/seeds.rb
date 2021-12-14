@@ -84,10 +84,10 @@ if it_course.periods.empty?
   lessons = [
     # Pre-Course (about roadmap & start)
     [
-      { name: '(Slack) Comunidade', icon: 'fab fa-slack', description: 'Descubra como utilizar nossa comunidade para tirar o maior proveito do curso', video_id: 'BPbCLtBl_g4'},
-      { name: '(LinkedIn) Revisão do perfil', icon: 'fab fa-linkedin-in', description: 'Tenha um perfil irresistível no LinkedIn e SEJA ACHADO ao invés de caçar vagas', video_id: 'BPbCLtBl_g4'},
-      { name: '(GitHub) Revisão do perfil', icon: 'fab fa-github', description: 'Tenha um portfólio que mostra seu potencial e os projetos nos quais você tem trabalhado', video_id: 'BPbCLtBl_g4'},
-      { name: '(plataformas) Revisão do perfil', icon: 'fal fa-address-card', description: 'Revisão dos perfis em plataformas de emprego para receber vagas adequadas', video_id: 'BPbCLtBl_g4'},
+      { name: '(Slack) Comunidade', icon: 'fab fa-slack', description: 'Descubra como utilizar nossa comunidade para tirar o maior proveito do curso', video_id: 'RIdBKjz4inY'},
+      { name: '(LinkedIn) Revisão do perfil', icon: 'fab fa-linkedin-in', description: 'Tenha um perfil irresistível no LinkedIn e SEJA ACHADO ao invés de caçar vagas', video_id: 'wOshWWgXMhc'},
+      { name: '(GitHub) Revisão do perfil', icon: 'fab fa-github', description: 'Tenha um portfólio que mostra seu potencial e os projetos nos quais você tem trabalhado', video_id: 'JdzC6XI_PT4'},
+      { name: '(plataformas) Revisão do perfil', icon: 'fal fa-address-card', description: 'Revisão dos perfis em plataformas de emprego para receber vagas adequadas', video_id: App::GENERIC_INTRO_ID},
       { name: 'KPI TaaS', icon: 'fal fa-drafting-compass', description: 'O que é o Talento como Serviço (Talent as a Service) e como isso vai aumentar suas chances de ter o primeiro emprego.' },
       { name: 'Vida de Programador', icon: 'fal fa-house-leave', description: 'Como funciona o trabalho na área de tecnologia e em empresas modernas e ágeis; Como é e o que é o SCRUM, Kanban, Lean Stratup; Como será o trabalho nos projetos da KPI Hunters, seus parceiros e demais empresas.' },
       { name: 'Backend vs Frontend', icon: 'fal fa-bring-front', description: 'Qual a diferença entre o trabalho do frontend e do backend e como funciona o trabalho das partes.' },
@@ -96,9 +96,9 @@ if it_course.periods.empty?
     ],
     # Environment Preparation
     [
-      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
-      { name: 'Uso do computador', icon: 'fal fa-phone-laptop', description: 'Como configurar e utilizar o computador. Diferença entre Sistemas Operacionais, Sistema de Arquivos, HD (ROM) vs Memória (RAM), pastas, arquivos e aplicativos).', video_id: 'BPbCLtBl_g4' },
-      { name: 'Linux no Windows', icon: 'fal fa-laptop-code', description: 'Como configurar e utilizar o linux no windows e o Gitbash e mostrar a diferença entre GitBash, WSL e Prompt.', video_id: 'BPbCLtBl_g4' },
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Uso do computador', icon: 'fal fa-phone-laptop', description: 'Como configurar e utilizar o computador. Diferença entre Sistemas Operacionais, Sistema de Arquivos, HD (ROM) vs Memória (RAM), pastas, arquivos e aplicativos).', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Linux no Windows', icon: 'fal fa-laptop-code', description: 'Como configurar e utilizar o linux no windows e o Gitbash e mostrar a diferença entre GitBash, WSL e Prompt.', video_id: App::GENERIC_INTRO_ID },
       { name: 'Operador avançado', icon: 'fal fa-terminal', description: 'UI vs Terminal: comandos básicos e o reflexo do comando na UI e vice-versa e lista de comandos a serem usados.' },
       { name: 'Docker vs Local', icon: 'fab fa-docker', description: 'O que é, como funciona e qual é o processo para instalar o que é necessário para trabalhar seja LOCAL ou no DOCKER (https://labs.play-with-docker.com/) e/ou Cloud (Google Colab, infraestrutura na núvem e etc).' },
       { name: 'Programar no Celular', icon: 'fal fa-mobile-android', description: 'Adaptando máquinas de baixo poder computacional (celular ou computador) para minimamente conseguir aprender a programar.' },
@@ -107,66 +107,66 @@ if it_course.periods.empty?
     ],
     # UI
     [
-      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
-      { name: 'Todas UI em 1', icon: 'fal fa-object-group', description: 'Todas as formas de criar telas em apenas 1 vídeo (Android, iOS, Web & Desktop)', video_id: 'BPbCLtBl_g4' },
-      { name: 'HTML / XML', icon: 'fal fa-file-code', description: 'Criação de telas em HTML (web/híbrido) ou Android Nativo (XML). Tudo é sempre a mesma coisa!', video_id: 'BPbCLtBl_g4' },
-      { name: 'CSS / XML', icon: 'fab fa-css3', description: 'Estilização de telas em CSS (web/híbrido) ou Android Nativo (XML). Tudo é sempre a mesma coisa!', video_id: 'BPbCLtBl_g4' },
-      { name: 'JavaScript', icon: 'fab fa-js-square', description: 'Tornando as telas estáticas em telas dinâmicas e interativas', video_id: 'BPbCLtBl_g4' },
-      { name: 'Frameworks de JS Front', icon: 'far fa-campfire', description: 'Frameworks para facilitar o desenvolvimento das interações e o dinamismo do sistema', video_id: 'BPbCLtBl_g4' },
-      { name: 'Telas (Portfólio)', icon: 'fal fa-columns', description: 'Uso de temas para facilitar o processo de desenvolvimento de UI', video_id: 'BPbCLtBl_g4' },
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Todas UI em 1', icon: 'fal fa-object-group', description: 'Todas as formas de criar telas em apenas 1 vídeo (Android, iOS, Web & Desktop)', video_id: App::GENERIC_INTRO_ID },
+      { name: 'HTML / XML', icon: 'fal fa-file-code', description: 'Criação de telas em HTML (web/híbrido) ou Android Nativo (XML). Tudo é sempre a mesma coisa!', video_id: App::GENERIC_INTRO_ID },
+      { name: 'CSS / XML', icon: 'fab fa-css3', description: 'Estilização de telas em CSS (web/híbrido) ou Android Nativo (XML). Tudo é sempre a mesma coisa!', video_id: App::GENERIC_INTRO_ID },
+      { name: 'JavaScript', icon: 'fab fa-js-square', description: 'Tornando as telas estáticas em telas dinâmicas e interativas', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Frameworks de JS Front', icon: 'far fa-campfire', description: 'Frameworks para facilitar o desenvolvimento das interações e o dinamismo do sistema', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Telas (Portfólio)', icon: 'fal fa-columns', description: 'Uso de temas para facilitar o processo de desenvolvimento de UI', video_id: App::GENERIC_INTRO_ID },
       { name: 'Desafio', icon: 'fal fa-volcano', description: 'Desafio para verificar se você conseguiu criar as telas corretamente' }
     ],
     # Programming Logic
     [
-      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
-      { name: 'Pensamento Estruturado (UML)', icon: 'fal fa-project-diagram', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: 'BPbCLtBl_g4' },
-      { name: 'Variáveis vs Constantes', icon: 'fad fa-angle-double-up', description: 'Funcionamento e seus Tipos. Tudo na TI é uma função, inclusive a criação e o preenchimento de Variáveis e Constantes. Estes dois tipos de armazenamento de informação são a menor abstração.', video_id: 'BPbCLtBl_g4' },
-      { name: 'Matemática Computacional', icon: 'fal fa-calculator-alt', description: 'Tudo em TI é uma função. Neste vídeo você verá que tudo sempre é função e como funciona a matemática computacional.', video_id: 'BPbCLtBl_g4' },
-      { name: 'Operadores Lógicos', icon: 'fal fa-sort-alt', description: 'Lógica clássica e lógica booleana além dos operadores utilizados para traduzir a lógica para a linguagem computacional', video_id: 'BPbCLtBl_g4' },
-      { name: 'Seleção e Repetição', icon: 'fal fa-code-branch', description: 'Blocos de códigos que fazem a seleção (IF+ELSE/SWITCH) e blocos de códigos que repetem o bloco (loop)', video_id: 'BPbCLtBl_g4' },
-      { name: 'Funções', icon: 'fal fa-function', description: 'Blocos de código que criam funções a serem reutilizados para obter o valor de um processamento a ser repetido em diversos locais do código', video_id: 'BPbCLtBl_g4' },
-      { name: 'Estrutura de Dados', icon: 'fal fa-album-collection', description: 'Estruturas de armazenamento de dados (array, lista, fila e dicionário). Basicamente apenas array e dicionário são de fato amplamento usados', video_id: 'BPbCLtBl_g4' },
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Pensamento Estruturado (UML)', icon: 'fal fa-project-diagram', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Variáveis vs Constantes', icon: 'fad fa-angle-double-up', description: 'Funcionamento e seus Tipos. Tudo na TI é uma função, inclusive a criação e o preenchimento de Variáveis e Constantes. Estes dois tipos de armazenamento de informação são a menor abstração.', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Matemática Computacional', icon: 'fal fa-calculator-alt', description: 'Tudo em TI é uma função. Neste vídeo você verá que tudo sempre é função e como funciona a matemática computacional.', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Operadores Lógicos', icon: 'fal fa-sort-alt', description: 'Lógica clássica e lógica booleana além dos operadores utilizados para traduzir a lógica para a linguagem computacional', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Seleção e Repetição', icon: 'fal fa-code-branch', description: 'Blocos de códigos que fazem a seleção (IF+ELSE/SWITCH) e blocos de códigos que repetem o bloco (loop)', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Funções', icon: 'fal fa-function', description: 'Blocos de código que criam funções a serem reutilizados para obter o valor de um processamento a ser repetido em diversos locais do código', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Estrutura de Dados', icon: 'fal fa-album-collection', description: 'Estruturas de armazenamento de dados (array, lista, fila e dicionário). Basicamente apenas array e dicionário são de fato amplamento usados', video_id: App::GENERIC_INTRO_ID },
       { name: 'Desafio', icon: 'fal fa-volcano', description: 'Desafio para verificar se você conseguiu entender a lógica de programação' }
     ],
     # Object Oriented
     [
-      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
-      { name: 'Classes e Métodos', icon: 'fal fa-users-class', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: 'BPbCLtBl_g4' },
-      { name: 'Objetos vs Dicionário', icon: 'fal fa-object-ungroup', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: 'BPbCLtBl_g4' },
-      { name: 'Herança e Polimorfismo', icon: 'fal fa-sitemap', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: 'BPbCLtBl_g4' },
-      { name: 'DRY e SOLID', icon: 'fal fa-users-slash', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: 'BPbCLtBl_g4' },
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Classes e Métodos', icon: 'fal fa-users-class', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Objetos vs Dicionário', icon: 'fal fa-object-ungroup', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Herança e Polimorfismo', icon: 'fal fa-sitemap', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: App::GENERIC_INTRO_ID },
+      { name: 'DRY e SOLID', icon: 'fal fa-users-slash', description: 'Pensamento lógico e estruturado do dia-a-dia em diagramas (UML). Você também verá a importância deste trabalho e o significado de KPI', video_id: App::GENERIC_INTRO_ID },
       { name: 'Desafio', icon: 'fal fa-volcano', description: 'Desafio para verificar se você conseguiu entender a lógica de programação' }
     ],
     # Database
     [
-      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
-      { name: 'Conceito de BD', icon: 'fal fa-server', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
-      { name: 'Conceito de serviços', icon: 'fal fa-concierge-bell', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
-      { name: 'MER', icon: 'fal fa-project-diagram', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
-      { name: 'Instalação SGBDs', icon: 'fal fa-download', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
-      { name: 'Dump & Importação', icon: 'fal fa-sync-alt', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
-      { name: 'SQLs', icon: 'fab fa-squarespace', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Conceito de BD', icon: 'fal fa-server', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Conceito de serviços', icon: 'fal fa-concierge-bell', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: App::GENERIC_INTRO_ID },
+      { name: 'MER', icon: 'fal fa-project-diagram', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Instalação SGBDs', icon: 'fal fa-download', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Dump & Importação', icon: 'fal fa-sync-alt', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: App::GENERIC_INTRO_ID },
+      { name: 'SQLs', icon: 'fab fa-squarespace', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: App::GENERIC_INTRO_ID },
       { name: 'Desafio', icon: 'fal fa-volcano', description: 'Desafio para verificar se você conseguiu entender o funcionamento e a gestão de banco de dados' }
     ],
     # Frameworks
     [
-      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
-      { name: 'Linguagens de Programação', icon: 'fal fa-language', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: 'BPbCLtBl_g4' },
-      { name: 'Gestão de Versão (CBL)', icon: 'fal fa-code-merge', description: 'Aprenda a versionar o interpretador/compilador da linguagem de programação (brew, apt...)', video_id: 'BPbCLtBl_g4' },
-      { name: 'Frameworks', icon: 'far fa-campfire', description: 'Aprenda o que é e como utilizar frameworks (códigos e estruturas prontas que agilizam o trabalho)', video_id: 'BPbCLtBl_g4' },
-      { name: 'Gestão de Dependências (CBL)', icon: 'fal fa-sitemap', description: 'Aprenda a versionar as dependências de frameworks do projeto', video_id: 'BPbCLtBl_g4' },
-      { name: 'Arquiteturas (MVC)', icon: 'fal fa-layer-group', description: 'Aprenda a principal arquitetura da grande maioria dos frameworks', video_id: 'BPbCLtBl_g4' },
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Linguagens de Programação', icon: 'fal fa-language', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Gestão de Versão (CBL)', icon: 'fal fa-code-merge', description: 'Aprenda a versionar o interpretador/compilador da linguagem de programação (brew, apt...)', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Frameworks', icon: 'far fa-campfire', description: 'Aprenda o que é e como utilizar frameworks (códigos e estruturas prontas que agilizam o trabalho)', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Gestão de Dependências (CBL)', icon: 'fal fa-sitemap', description: 'Aprenda a versionar as dependências de frameworks do projeto', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Arquiteturas (MVC)', icon: 'fal fa-layer-group', description: 'Aprenda a principal arquitetura da grande maioria dos frameworks', video_id: App::GENERIC_INTRO_ID },
       { name: 'Desafio', icon: 'fal fa-volcano', description: 'Desafio para verificar se você conseguiu entender como funcionam os frameworks e se consegue aplicar' }
     ],
     # Data Science
     [
-      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: 'BPbCLtBl_g4' },
-      { name: 'Entendendo o Negócio', icon: 'fas fa-briefcase', description: 'Entendendo o negócio. Entendendo as regras e o funcionamento do escopo do trabalho humano', video_id: 'BPbCLtBl_g4' },
-      { name: 'Entendendo os Dados', icon: 'fad fa-table', description: 'Aprenda a versionar o interpretador/compilador da linguagem de programação (brew, apt...)', video_id: 'BPbCLtBl_g4' },
-      { name: 'Visualização de Dados', icon: 'fad fa-chart-pie', description: 'Aprenda a visualizar os dados e como interpretar os gráficos', video_id: 'BPbCLtBl_g4' },
-      { name: 'Modelagem', icon: 'fal fa-sitemap', description: 'Aprenda a criar modelos de Inteligência Artificial com diversos algoritmos', video_id: 'BPbCLtBl_g4' },
-      { name: 'Avaliação', icon: 'fab fa-searchengin', description: 'Aprenda a avaliar a qualidade do modelo e a sua efetividade em casos reais', video_id: 'BPbCLtBl_g4' },
-      { name: 'DataApp', icon: 'fal fa-layer-group', description: 'Criando um app que permite um humano interagir com o modelo de IA criado via interface gráfica', video_id: 'BPbCLtBl_g4' },
+      { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Entendendo o Negócio', icon: 'fas fa-briefcase', description: 'Entendendo o negócio. Entendendo as regras e o funcionamento do escopo do trabalho humano', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Entendendo os Dados', icon: 'fad fa-table', description: 'Aprenda a versionar o interpretador/compilador da linguagem de programação (brew, apt...)', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Visualização de Dados', icon: 'fad fa-chart-pie', description: 'Aprenda a visualizar os dados e como interpretar os gráficos', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Modelagem', icon: 'fal fa-sitemap', description: 'Aprenda a criar modelos de Inteligência Artificial com diversos algoritmos', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Avaliação', icon: 'fab fa-searchengin', description: 'Aprenda a avaliar a qualidade do modelo e a sua efetividade em casos reais', video_id: App::GENERIC_INTRO_ID },
+      { name: 'DataApp', icon: 'fal fa-layer-group', description: 'Criando um app que permite um humano interagir com o modelo de IA criado via interface gráfica', video_id: App::GENERIC_INTRO_ID },
       { name: 'Desafio', icon: 'fal fa-volcano', description: 'Desafio para verificar se você conseguiu entender como funciona os passos anteriores conhecidos como CRISPDM' }
     ]
   ]

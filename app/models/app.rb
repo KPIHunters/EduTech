@@ -1,6 +1,8 @@
 class App < ApplicationRecord
   # Constants
-  GENERIC_INTRO = 'https://www.youtube.com/embed/v9p9trnQIL8'
+  # TODO change it
+  GENERIC_INTRO_ID = 'v9p9trnQIL8'
+  GENERIC_INTRO_URL = 'https://www.youtube.com/embed/v9p9trnQIL8'
 
   # Dependencies
   acts_as_paranoid

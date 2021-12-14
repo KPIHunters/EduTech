@@ -1,15 +1,6 @@
-/ ul.nav.sm-txt
-/div style="overflow:scroll;"
 ul.nav
-  /if params[:course_id].nil? and ((params[:controller] != 'courses' and params[:id].nil?) or (params[:controller] == 'courses' and params[:id].nil?))
   -if @current_user.admin?
   -else
-    / li class=(('active ' if current_page?(dashboard_path) || current_page_includes?('dashboard')))
-    /   a href="#{dashboard_path}"
-    /     / i.far.fa-chart-bar
-    /     i.fal.fa-tachometer-alt-fastest
-    /     p =t('actions.dashboard.name')
-
     -unless admin_course? || @periods.nil?
       li class=(('active ' if current_page?(showroom_path) || current_page_includes?('showroom')))
         a href="#{showroom_path}"
@@ -20,12 +11,6 @@ ul.nav
       a href="#{recent_videos_path}"
         i.fal.fa-history
         p =t('actions.recent_videos.name')
-
-
-    / li class=(('active ' if current_page?(courses_path) || current_page_includes?('courses')))
-    /   a href="#{courses_path}"
-    /     i.fas.fa-book-reader
-    /     p =t('actions.courses.name')
 
     -unless @periods.nil?
       li class=(('active ' if current_page?(intro_course_path)))
