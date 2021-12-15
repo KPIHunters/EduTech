@@ -25,7 +25,7 @@ if u_admin.nil?
   admin.skip_confirmation!
   admin.save
   p1 = Profile.new phone: '11972540367', state_ibge: '53', county_ibge: '5300108', user_id: admin.id,
-               full_address: Faker::Address.full_address, zip_code: Faker::Address.zip_code,
+               full_address: Faker::Address.full_address, zip_code: "#{Faker::Address.zip_code}00",
                company_fantasy_name: 'KPI Hunters', website: 'https://kpihunters.com',
                gov_id_pf: CPF.generate, gov_id_pj: '32282065000163', birthday: '03/07/1990',
                company_legal_name: 'KPI Hunters Marketing & Tecnologia Ltda',
@@ -43,7 +43,7 @@ if u_admin.nil?
   user2.save
   p2 = Profile.new phone: '21972550567', gov_id_pf: CPF.generate, user_id: user2.id, birthday: '04/02/1990',
                    state_ibge: '53', county_ibge: '5300108', website: 'https://kpihunters.com',
-                   full_address: Faker::Address.full_address, zip_code: Faker::Address.zip_code,
+                   full_address: Faker::Address.full_address, zip_code: "#{Faker::Address.zip_code}11",
                    bio: 'engenheiro de software; engenheiro de dados; cientista de dados; empreendedor; pesquisador em saúde; engenharia biomédica; desenvolvedor full stack; agrotech; meio ambiente; cooperação internacional'
   p2.user = user2
   p2.save
@@ -152,9 +152,9 @@ if it_course.periods.empty?
     [
       { name: 'Introdução Prática', icon: 'fad fa-lightbulb-on', description: 'Aplicação de ponta a ponta para você ter uma noção do que verá nos outros vídeos', video_id: App::GENERIC_INTRO_ID },
       { name: 'Linguagens de Programação', icon: 'fal fa-language', description: 'Descubra o segredo: É TUDO SEMPRE A MESMA COISA!', video_id: App::GENERIC_INTRO_ID },
-      { name: 'Gestão de Versão (CBL)', icon: 'fal fa-code-merge', description: 'Aprenda a versionar o interpretador/compilador da linguagem de programação (brew, apt...)', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Gestão de Versão', icon: 'fal fa-code-merge', description: 'Aprenda a versionar o interpretador/compilador da linguagem de programação (brew, apt...)', video_id: App::GENERIC_INTRO_ID },
       { name: 'Frameworks', icon: 'far fa-campfire', description: 'Aprenda o que é e como utilizar frameworks (códigos e estruturas prontas que agilizam o trabalho)', video_id: App::GENERIC_INTRO_ID },
-      { name: 'Gestão de Dependências (CBL)', icon: 'fal fa-sitemap', description: 'Aprenda a versionar as dependências de frameworks do projeto', video_id: App::GENERIC_INTRO_ID },
+      { name: 'Gestão de Dependências', icon: 'fal fa-sitemap', description: 'Aprenda a versionar as dependências de frameworks do projeto', video_id: App::GENERIC_INTRO_ID },
       { name: 'Arquiteturas (MVC)', icon: 'fal fa-layer-group', description: 'Aprenda a principal arquitetura da grande maioria dos frameworks', video_id: App::GENERIC_INTRO_ID },
       { name: 'Desafio', icon: 'fal fa-volcano', description: 'Desafio para verificar se você conseguiu entender como funcionam os frameworks e se consegue aplicar' }
     ],

@@ -5,11 +5,16 @@
     =link_to switch_active_account_path(@profile), class: 'btn btn-danger btn-fill' do
       ="#{ @profile.validated_docs ? 'Desvalidar usuário' : 'Validar usuário' }"
 
--if !current_profile_user.profile.nil? && !current_profile_user.profile.validated_docs
-  .alert.alert-warning
-    b Atenção.
-    = ' Caso seus dados estejam completos e você ainda não possa ver às aulas é porque seus dados precisam ser validados pela equipe KPI Hunters'
-  br
+-if !current_profile_user.profile.nil? 
+  -if !current_profile_user.profile.validated_docs
+    .alert.alert-warning
+      b Atenção.
+      = ' Seus dados ainda não foram validados, aguarde que nossa equipe fará a validação e você poderá assistir às aulas.'
+    br
+  -else
+    .alert.alert-success
+      b Sucesso!
+      = ' Seus dados já foram validados e agora você pode assistir às aulas.'
 
 -if @profile.errors.any?
   #error_explanation

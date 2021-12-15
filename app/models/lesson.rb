@@ -19,7 +19,7 @@ class Lesson < ApplicationRecord
     if !self.playlist_id.nil?
       self.playlist_id.index('http').nil? ? final_url = "#{playlist_url}=#{playlist_id}" : final_url = playlist_id  
     elsif !self.video_id.nil?
-      self.video_id.index('http').nil? ? final_url = "#{video_url}/#{playlist_id}" : final_url = playlist_id
+      self.video_id.index('http').nil? ? final_url = "#{video_url}/#{video_id}" : final_url = video_id
     else
       final_url = App::GENERIC_INTRO_URL
     end

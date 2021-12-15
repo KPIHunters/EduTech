@@ -92,7 +92,7 @@ class ProfilesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_profile
-    if @current_user.profile.id != params[:id].to_i && !@current_user.admin?
+    if !@current_user.admin? && @current_user.profile.id != params[:id].to_i
       return form_redir
     end
 
